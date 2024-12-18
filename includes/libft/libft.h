@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 01:01:11 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/11 05:08:00 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/18 05:24:57 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isprint(int c);
 int		ft_isascii(int c);
+int		ft_isspace(char c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 

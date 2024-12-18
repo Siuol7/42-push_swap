@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 09:55:04 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/18 05:47:21 by caonguye         ###   ########.fr       */
+/*   Created: 2024/12/18 06:01:25 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/18 06:03:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./headers/push_swap.h"
 
-int	main(int ac, char **av)
+void	error_parsing(char **a, char **b)
 {
-	if (ac < 2)
-	{
-		ft_printf_fd(2, "Bad arguments");
-		return (1);
-	}
-	//->Parse &av
-	parsing(av);
-	return (0);
+	ft_free_2d(a);
+	ft_free_2d(b);
+	ft_printf_fd(2, "Error");
+	return (1);
 }

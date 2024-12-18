@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 09:55:04 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/18 05:47:21 by caonguye         ###   ########.fr       */
+/*   Created: 2024/12/18 05:10:32 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/18 07:34:52 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./headers/push_swap.h"
 
-int	main(int ac, char **av)
+char	**parsing(char **av)
 {
-	if (ac < 2)
+	char	**input;
+	char	**final;
+
+	while (++av)
 	{
-		ft_printf_fd(2, "Bad arguments");
-		return (1);
-	}
-	//->Parse &av
-	parsing(av);
-	return (0);
+		input = ft_space_splitting(av);
+		if(!input)
+			error_parsing(input, final);
+		final = ft_2djoin(final, input);
+		if(!final)
+			error_parsing(input, final);
+		
 }
