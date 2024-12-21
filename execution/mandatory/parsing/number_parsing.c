@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:59:48 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/21 19:23:23 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 01:03:04 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 char	**number_parsing(int len, char **av)
 {
@@ -23,7 +23,7 @@ char	**number_parsing(int len, char **av)
 	final = malloc(len + 1);
 	if (!final)
 		return (NULL);
-	final[len] = '\0';
+	final[len] = NULL;
 	while (i < len)
 	{
 		j = 0;

@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/21 18:58:31 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 01:02:57 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	fillright(int **array, int *R, t_sort *index)
 {

@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 05:10:32 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/21 19:40:30 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 01:02:53 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 char	**parsing(char **av)
 {
@@ -18,7 +18,8 @@ char	**parsing(char **av)
 	char	**array;
 
 	len = number_count(av);
-	array = number_parse(len, av);
+	array = number_parsing(len, av);
 	if (!*array)
 		return (NULL);
+	return (array);
 }

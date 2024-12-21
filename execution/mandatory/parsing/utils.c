@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:02:29 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 16:24:32 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 01:03:01 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static int	single_count(char *av)
 {

@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 09:55:04 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/21 19:40:14 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 01:01:15 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int	main(int ac, char **av)
 {
-	t_sort	index;
 	char	**array;
-	int		*rank;
-	int		*main;
 
 	if (ac < 2)
 	{
@@ -27,6 +24,8 @@ int	main(int ac, char **av)
 	array = parsing(++av);
 	if (!*array)
 		ft_printf_fd(2, "Error\n");
+	int i = 0;
+	while (av[i])
+		ft_printf_fd(1, "%s\n", av[i]);
 	return (0);
-	
 }
