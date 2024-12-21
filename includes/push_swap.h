@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:18 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/21 18:32:26 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_sort
 	int	k;
 	int n1;
 	int n2;
+	int	dup;
 }	t_sort;
 
 typedef struct s_node

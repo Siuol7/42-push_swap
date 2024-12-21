@@ -1,24 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   number_parsing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 05:10:32 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/21 19:40:30 by caonguye         ###   ########.fr       */
+/*   Created: 2024/12/19 11:59:48 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/21 19:23:23 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-char	**parsing(char **av)
+char	**number_parsing(int len, char **av)
 {
-	int		len;
-	char	**array;
+	int		i;
+	int		j;
+	char	**final;
+	char	**temp;
 
-	len = number_count(av);
-	array = number_parse(len, av);
-	if (!*array)
+	i = 0;
+	final = malloc(len + 1);
+	if (!final)
 		return (NULL);
+	final[len] = '\0';
+	while (i < len)
+	{
+		j = 0;
+		temp = ft_split(av);
+		if (!*temp)
+		{
+			ft_free_process_2d(final, i - 1);
+			return (NULL);
+		}
+		while (*temp)
+			final[i++] = ft_strdup(temp[j++]);
+		ft_free_2d(temp);
+		av++;
+	}
+	return (final);
 }
