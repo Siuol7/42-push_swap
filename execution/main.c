@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 09:55:04 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 01:01:15 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 05:30:36 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	main(int ac, char **av)
 {
