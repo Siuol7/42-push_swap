@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 01:39:08 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:28 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 11:17:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*ft_formatting_fd(va_list ap, const char *format)
 	int		i;
 
 	i = 0;
-	prewrote = ft_strdup("");
+	prewrote = ft_strdup_printf("");
 	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
@@ -55,7 +55,7 @@ int	ft_printf_fd(int fd, const char *format, ...)
 	va_start(ap, format);
 	total_char = ft_formatting_fd(ap, format);
 	va_end(ap);
-	wrote = write(fd, total_char, ft_strlen(total_char));
+	wrote = write(fd, total_char, ft_strlen_printf(total_char));
 	ft_free(total_char);
 	if (wrote == -1)
 		return (-1);

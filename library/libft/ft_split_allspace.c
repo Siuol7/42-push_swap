@@ -6,43 +6,37 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 05:45:47 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 14:47:25 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:37:07 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_wordcount(char const *s, char c)
+static size_t	ft_wordcount(char const *s)
 {
-	int		flag;
-	size_t	i;
-	int		cnt;
+	int	i;
+	int	cnt;
 
-	flag = 1;
 	cnt = 0;
 	i = 0;
 	while (s[i])
 	{
-		if (flag == 1 && s[i] != c)
-		{
+		while (s[i] && ft_isspace(s[i]))
+			i++;
+		if (s[i] && !ft_isspace(s[i]))
 			cnt++;
-			flag = 0;
-		}
-		else if (s[i] == c)
-			flag = 1;
-		i++;
+		while (s[i] && !ft_isspace(s[i]))
+			i++;
 	}
 	return (cnt);
 }
 
-static	size_t	ft_wordlength(char const *start, char c)
+static	size_t	ft_wordlength(char const *start)
 {
 	size_t	wlen;
-	size_t	i;
 
 	wlen = 0;
-	i = 0;
-	while (start[i] && start[i++] != c)
+	while (start[wlen] && !ft_isspace(start[wlen]))
 		wlen++;
 	return (wlen);
 }
@@ -58,7 +52,7 @@ static void	ft_free(char **final, size_t cur)
 	final = NULL;
 }
 
-static char	**ft_splitting(char **final, char const *s, char c)
+static char	**ft_splitting(char **final, char const *s)
 {
 	size_t	i;
 	size_t	j;
@@ -68,11 +62,11 @@ static char	**ft_splitting(char **final, char const *s, char c)
 	j = 0;
 	while (s[j])
 	{
-		while (s[j] && s[j] == c)
+		while (s[j] && ft_isspace(s[j]))
 			j++;
-		if (s[j] && s[j] != c)
+		if (s[j] && !ft_isspace(s[j]))
 		{
-			wlen = ft_wordlength(&s[j], c);
+			wlen = ft_wordlength(&s[j]);
 			final[i] = ft_substr(s, j, wlen);
 			if (!final[i])
 			{
@@ -87,16 +81,16 @@ static char	**ft_splitting(char **final, char const *s, char c)
 	return (final);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split_allspace(char const *s)
 {
 	char	**final;
 	size_t	totlen;
 
 	if (!s)
 		return (NULL);
-	totlen = ft_wordcount(s, c);
+	totlen = ft_wordcount(s);
 	final = (char **)malloc((totlen + 1) * sizeof(char *));
 	if (!final)
 		return (NULL);
-	return (ft_splitting(final, s, c));
+	return (ft_splitting(final, s));
 }

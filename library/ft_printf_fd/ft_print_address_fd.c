@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 05:52:33 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:26 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 11:17:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_print_address_fd(uintptr_t nbr, int baselen, int low_up)
 	char	*wrote;
 
 	if (nbr == 0)
-		wrote = ft_strdup("(nil)");
+		wrote = ft_strdup_printf("(nil)");
 	else
 	{
-		first = ft_strdup("0x");
+		first = ft_strdup_printf("0x");
 		second = ft_putnbr_base_fd(nbr, baselen, low_up);
 		wrote = ft_strjoin_printf(first, second);
 		free(first);

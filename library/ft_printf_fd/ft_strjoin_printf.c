@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin_printf.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 05:13:56 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:44 by caonguye         ###   ########.fr       */
+/*   Created: 2024/11/03 10:20:49 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/22 11:17:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strdup(char *s)
+char	*ft_strjoin_printf(char *s1, char *s2)
 {
 	char	*res;
-	int		i;
+	size_t	lens1;
+	size_t	lens2;
 
-	i = 0;
-	res = malloc(ft_strlen(s) + 1);
-	while (s[i])
-	{
-		res[i] = s[i];
-		i++;
-	}
-	res[i] = '\0';
+	if (!s1 && !s2)
+		return (ft_strdup_printf(""));
+	if (!s1)
+		return (ft_strdup_printf(s2));
+	if (!s2)
+		return (ft_strdup_printf(s1));
+	lens1 = ft_strlen_printf(s1);
+	lens2 = ft_strlen_printf(s2);
+	res = malloc(lens1 + lens2 +1);
+	if (res == NULL)
+		return (NULL);
+	ft_memcpy_printf(res, s1, lens1);
+	ft_memcpy_printf(res + lens1, s2, lens2);
+	res[lens1 + lens2] = '\0';
 	return (res);
 }

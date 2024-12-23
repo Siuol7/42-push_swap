@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 03:34:58 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:32 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 11:17:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ char	*ft_printf_format_fd(char specifier, va_list ap)
 	else if (specifier == 'p')
 		wrote = ft_print_address_fd((uintptr_t)va_arg(ap, void *), 16, 0);
 	else if (specifier == '%')
-		wrote = ft_strdup("%");
+		wrote = ft_strdup_printf("%");
 	else
-		wrote = (ft_strdup(&specifier));
+		wrote = (ft_strdup_printf(&specifier));
 	return (wrote);
 }

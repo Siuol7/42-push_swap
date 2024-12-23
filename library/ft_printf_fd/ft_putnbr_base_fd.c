@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 03:38:43 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:39 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 11:17:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	*ft_putnbr_base_fd(long long nbr, int baselen, int low_up)
 	if (!wrote)
 		return (NULL);
 	temp = wrote;
-	base = ft_strdup(ft_base_check(baselen, low_up));
+	base = ft_strdup_printf(ft_base_check(baselen, low_up));
 	if (baselen == 16)
 		ft_puthexa(nbr, base, baselen, &temp);
 	else

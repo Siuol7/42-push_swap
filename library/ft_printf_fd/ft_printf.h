@@ -6,14 +6,14 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 02:49:42 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:34 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 11:08:48 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
+# include "libft_printf.h"
 # include <stdarg.h>
 # include <stdint.h>
 # include <stdlib.h>

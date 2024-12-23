@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 02:34:07 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:36 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 11:17:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 char	*ft_putchar_fd(int c)
 {
-	return (ft_strdup((char *)&c));
+	return (ft_strdup_printf((char *)&c));
 }

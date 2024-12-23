@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 10:20:49 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:46 by caonguye         ###   ########.fr       */
+/*   Created: 2024/11/02 23:23:36 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/22 11:16:22 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strjoin_printf(char *s1, char *s2)
+void	*ft_memcpy_printf(void *dest, void *src, size_t n)
 {
-	char	*res;
-	size_t	lens1;
-	size_t	lens2;
+	size_t				i;
+	unsigned char		*d;
+	unsigned char		*s;
 
-	if (!s1 && !s2)
-		return (ft_strdup(""));
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
-	lens1 = ft_strlen(s1);
-	lens2 = ft_strlen(s2);
-	res = malloc(lens1 + lens2 +1);
-	if (res == NULL)
+	if ((!dest && !src) || dest == src)
 		return (NULL);
-	ft_memcpy_printf(res, s1, lens1);
-	ft_memcpy_printf(res + lens1, s2, lens2);
-	res[lens1 + lens2] = '\0';
-	return (res);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
 }

@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:02:29 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 05:30:41 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 14:31:52 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 static int	single_count(char *av)
 {
@@ -19,12 +19,15 @@ static int	single_count(char *av)
 
 	i = 0;
 	cnt = 0;
-	while (av[i] == 32 || (9 <= av[i] && av[i] <= 13))
-		i++;
-	if (av[i] != 32 || (9 > av[i] && av[i] > 13));
-		cnt++;
-	while (av[i] != 32 || (9 > av[i] && av[i] > 13))
-		i++;
+	while (av[i])
+	{
+		while (av[i] == 32 || (9 <= av[i] && av[i] <= 13))
+			i++;
+		if (av[i] > 32 && av[i] < 127)
+			cnt++;
+		while ((av[i] > 32 && av[i] < 127))
+			i++;
+	}
 	return (cnt);
 }
 

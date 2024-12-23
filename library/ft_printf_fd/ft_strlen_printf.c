@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 09:55:04 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 05:30:36 by caonguye         ###   ########.fr       */
+/*   Created: 2024/11/07 00:41:32 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/19 10:57:17 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-int	main(int ac, char **av)
+int	ft_strlen_printf(char *s)
 {
-	char	**array;
+	int	len;
 
-	if (ac < 2)
-	{
-		ft_printf_fd(2, "Bad arguments");
-		return (1);
-	}
-	array = parsing(++av);
-	if (!*array)
-		ft_printf_fd(2, "Error\n");
-	int i = 0;
-	while (av[i])
-		ft_printf_fd(1, "%s\n", av[i]);
-	return (0);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   push_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 00:41:32 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:57:17 by caonguye         ###   ########.fr       */
+/*   Created: 2024/12/22 08:37:54 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/22 08:54:36 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *s)
-{
-	int	len;
+#include "push_swap.h"
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+int	get_index(int *rank, int val, int left, int right)
+{
+	int	mid;
+
+	if (left > right)
+		return (-1);
+	mid = (left + right) / 2;
+	if (rank[mid] == val)
+		return (mid);
+	if (val < rank[mid])
+		return (get_index(rank, val, left, mid - 1));
+	if (val > rank[mid])
+		return (get_index(rank, val, mid + 1, right));
 }

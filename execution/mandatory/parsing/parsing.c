@@ -6,16 +6,16 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 05:10:32 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 05:30:34 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:35:19 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
-char	**parsing(char **av)
+int	*parsing(char **av)
 {
 	int		len;
-	char	**array;
+	int		*array;
 
 	len = number_count(av);
 	array = number_parsing(len, av);

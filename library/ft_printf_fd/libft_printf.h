@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   libft_printf.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/02 23:23:36 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:23 by caonguye         ###   ########.fr       */
+/*   Created: 2024/11/07 00:40:01 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/22 11:17:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_PRINTF_H
+# define LIBFT_PRINTF_H
 
-void	*ft_memcpy_printf(void *dest, void *src, size_t n)
-{
-	size_t				i;
-	unsigned char		*d;
-	unsigned char		*s;
+# include <unistd.h>
+# include <stdlib.h>
 
-	if ((!dest && !src) || dest == src)
-		return (NULL);
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	i = 0;
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dest);
-}
+int		ft_strlen_printf(char *s);
+char	*ft_strdup_printf(char *s);
+#endif

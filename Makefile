@@ -3,8 +3,8 @@ CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror
 
 # Additional library paths
-LIBFT_DIR			:= library/libft
-FT_PRINTF_FD_DIR	:= library/ft_printf_fd
+LIBFT_DIR			:= ./library/libft
+FT_PRINTF_FD_DIR	:= ./library/ft_printf_fd
 
 # Libraries
 LIBFT				:= ${LIBFT_DIR}/libft.a
@@ -13,12 +13,17 @@ FT_PRINTF_FD		:= ${FT_PRINTF_FD_DIR}/libftprintf.a
 #INCLUDE
 INCLUDE				:= -I ${LIBFT_DIR} -I ${FT_PRINTF_FD_DIR} -I ./includes
 
+MAIN				:= ./execution/main
 MANDATORY			:= ./execution/mandatory
 BONUS				:= ./execution/bonus
+
 
 PARSING				:= parsing
 PRE_PS				:= pre_push_swap
 ERROR				:= error
+
+MAIN_C				:=	main.c\
+						utilities.c
 
 PARSING_C			:=	number_parsing.c	\
 						parsing.c			\
@@ -28,8 +33,8 @@ PRE_PS_C			:= sorting.c			\
 
 ERROR_C				:= error_parsing.c
 
-SRCS				:= 			./execution/main.c										\
-								$(addprefix	${MANDATORY}/${PARSING}/,	${PARSING_C})	\
+SRCS				:= 			$(addprefix ${MAIN}/				,	${MAIN_C})			\
+								$(addprefix	${MANDATORY}/${PARSING}/,	${PARSING_C})		\
 								$(addprefix ${MANDATORY}/${PRE_PS}/,		${PRE_PS_C})	\
 								$(addprefix ${MANDATORY}/${ERROR}/,		${ERROR_C})
 
@@ -40,7 +45,7 @@ OBJS				:= ${SRCS:.c=.o}
 #OBJS_BN			:= ${BONUS:.c=.o}
 
 #Default Target
-all:	${LIBFT_DIR} ${FT_PRINTF_FD_DIR} ${NAME}
+all:	${LIBFT} ${FT_PRINTF_FD} ${NAME}
 
 #Compiling Rule
 %.o:	%.c
@@ -50,6 +55,15 @@ all:	${LIBFT_DIR} ${FT_PRINTF_FD_DIR} ${NAME}
 #Create source library
 ${NAME}: ${OBJS} ${LIBFT} ${FT_PRINTF_FD}
 		cc ${OBJS} ${LIBFT} ${FT_PRINTF_FD} -o ${NAME}
+
+# Build libft.a
+${LIBFT}:
+		$(MAKE) -C ${LIBFT_DIR}
+
+# Build ft_printf.a
+${FT_PRINTF_FD}:
+		$(MAKE) -C ${FT_PRINTF_FD_DIR}
+
 
 # Create bonus lib
 bonus : .bonus

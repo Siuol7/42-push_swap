@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 05:30:46 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:21:23 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 static void	fillright(int **array, int *R, t_sort *index)
 {
@@ -53,12 +53,12 @@ static void	merge(int **array, int *L, int *R, t_sort *index)
 			index->k++;
 		}
 	}
-	fillleft(array, L, &index);
-	fillright(array, R, &index);
+	fillleft(array, L, index);
+	fillright(array, R, index);
 
 }
 
-static void	premerge(int **array, int left, int mid, int right)
+static int	premerge(int **array, int left, int mid, int right)
 {
 	t_sort index;
 	int		*L;
@@ -76,15 +76,19 @@ static void	premerge(int **array, int left, int mid, int right)
 	}
 	while (index.j < index.n2)
 	{
-		L[index.j] = (*array)[mid + 1 + index.j];
+		R[index.j] = (*array)[mid + 1 + index.j];
 		index.j++;
 	}
+	index.k = left;
 	merge(array, L, R, &index);
 	free(L);
 	free(R);
+	if (index.dup == 1)
+		return (0);
+	return (1);
 }
 
-void	mergesort(int **array, int left, int right)
+int	mergesort(int **array, int left, int right)
 {
 	int	mid;
 
@@ -93,6 +97,8 @@ void	mergesort(int **array, int left, int right)
 		mid = (right + left) / 2;
 		mergesort(array, left, mid);
 		mergesort(array, mid + 1, right);
-		premerge(array, left, mid, right);
+		if (premerge(array, left, mid, right))
+			return (0);
 	}
+	return (1);
 }

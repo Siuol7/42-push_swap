@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 00:40:01 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:57:20 by caonguye         ###   ########.fr       */
+/*   Created: 2024/12/17 09:55:04 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/22 19:22:09 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+int	main(int ac, char **av)
+{
+	int		*rank;
+	// int		*main_arr;
 
-int		ft_strlen(char *s);
-char	*ft_strdup(char *s);
-#endif
+	if (ac < 2)
+	{
+		ft_printf_fd(2, "Bad arguments");
+		return (1);
+	}
+	rank = parsing(++av);
+	mergesort(&rank,0, 7);
+	if (!*rank)
+	{
+		ft_printf_fd(2, "Error\n");
+		return (1);
+	}
+	int i = 0;
+	while (rank[i])
+		ft_printf_fd(1, "%d\n", rank[i++]);
+	return (0);
+}
