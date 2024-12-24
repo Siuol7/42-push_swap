@@ -6,15 +6,15 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 18:33:20 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/23 11:16:34 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf.h"
-# include <libft.h>
+# include "../library/ft_printf_fd/ft_printf.h"
+# include "../library/libft/libft.h"
 
 typedef struct s_sort
 {
@@ -55,7 +55,7 @@ void	error_parsing(char **a, char **b);
 
 //PARSING
 //parsing
-int		*parsing(char **av);
+int	*parsing(char **av, int *size);
 
 //number parsing
 int		*number_parsing(int len, char **av);
@@ -65,5 +65,7 @@ int		number_count(char **av);
 
 //pre push_swap
 int		mergesort(int **array, int left, int right);
+
+int		utilities(int ac, char **av);
 
 #endif

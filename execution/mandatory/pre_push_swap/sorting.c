@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 19:21:23 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/24 09:32:54 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 static void	fillright(int **array, int *R, t_sort *index)
 {
@@ -97,7 +97,7 @@ int	mergesort(int **array, int left, int right)
 		mid = (right + left) / 2;
 		mergesort(array, left, mid);
 		mergesort(array, mid + 1, right);
-		if (premerge(array, left, mid, right))
+		if (!premerge(array, left, mid, right))
 			return (0);
 	}
 	return (1);

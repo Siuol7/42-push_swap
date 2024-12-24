@@ -22,7 +22,7 @@ PARSING				:= parsing
 PRE_PS				:= pre_push_swap
 ERROR				:= error
 
-MAIN_C				:=	main.c\
+MAIN_C				:=	main.c				\
 						utilities.c
 
 PARSING_C			:=	number_parsing.c	\
@@ -33,9 +33,9 @@ PRE_PS_C			:= sorting.c			\
 
 ERROR_C				:= error_parsing.c
 
-SRCS				:= 			$(addprefix ${MAIN}/				,	${MAIN_C})			\
+SRCS				:= 			$(addprefix ${MAIN}/,					${MAIN_C})			\
 								$(addprefix	${MANDATORY}/${PARSING}/,	${PARSING_C})		\
-								$(addprefix ${MANDATORY}/${PRE_PS}/,		${PRE_PS_C})	\
+								$(addprefix ${MANDATORY}/${PRE_PS}/,	${PRE_PS_C})		\
 								$(addprefix ${MANDATORY}/${ERROR}/,		${ERROR_C})
 
 #BONUS				:=
@@ -46,6 +46,7 @@ OBJS				:= ${SRCS:.c=.o}
 
 #Default Target
 all:	${LIBFT} ${FT_PRINTF_FD} ${NAME}
+		@echo "Sources: ${SRCS}"
 
 #Compiling Rule
 %.o:	%.c

@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:37:54 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 08:54:36 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/23 09:59:54 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 int	get_index(int *rank, int val, int left, int right)
 {
