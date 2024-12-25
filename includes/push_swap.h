@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/23 11:16:34 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/25 11:48:04 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_stack
 
 typedef struct s_pushswap
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 }	t_pushswap;
 
 
@@ -66,6 +66,21 @@ int		number_count(char **av);
 //pre push_swap
 int		mergesort(int **array, int left, int right);
 
+//STACKING
+//push_stack
+int		push_stack(t_pushswap *ps, int *rank, int *main_arr, int size);
+
+//stack_ops
+void	insert_node(t_stack *stack, t_node *node);
+
+//utils
+int		get_index(int *rank, int val, int left, int right);
+
+
+//utils
+int		get_index(int *rank, int val, int left, int right);
+
+//MAIN
 int		utilities(int ac, char **av);
 
 #endif

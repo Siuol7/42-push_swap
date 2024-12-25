@@ -13,13 +13,14 @@ FT_PRINTF_FD		:= ${FT_PRINTF_FD_DIR}/libftprintf.a
 #INCLUDE
 INCLUDE				:= -I ${LIBFT_DIR} -I ${FT_PRINTF_FD_DIR} -I ./includes
 
-MAIN				:= ./execution/main
-MANDATORY			:= ./execution/mandatory
-BONUS				:= ./execution/bonus
+MAIN				:= ./srcs/main
+MANDATORY			:= ./srcs/mandatory
+BONUS				:= ./srcs/bonus
 
 
 PARSING				:= parsing
 PRE_PS				:= pre_push_swap
+STACK				:= stack
 ERROR				:= error
 
 MAIN_C				:=	main.c				\
@@ -29,6 +30,10 @@ PARSING_C			:=	number_parsing.c	\
 						parsing.c			\
 						utils.c
 
+STACK_C				:=	push_stack.c		\
+						stack_ops.c			\
+						utils.c
+
 PRE_PS_C			:= sorting.c			\
 
 ERROR_C				:= error_parsing.c
@@ -36,6 +41,7 @@ ERROR_C				:= error_parsing.c
 SRCS				:= 			$(addprefix ${MAIN}/,					${MAIN_C})			\
 								$(addprefix	${MANDATORY}/${PARSING}/,	${PARSING_C})		\
 								$(addprefix ${MANDATORY}/${PRE_PS}/,	${PRE_PS_C})		\
+								$(addprefix ${MANDATORY}/${STACK}/,		${STACK_C})			\
 								$(addprefix ${MANDATORY}/${ERROR}/,		${ERROR_C})
 
 #BONUS				:=

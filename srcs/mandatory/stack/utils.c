@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_stack.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 08:37:54 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/23 09:59:54 by caonguye         ###   ########.fr       */
+/*   Created: 2024/12/24 11:13:02 by caonguye          #+#    #+#             */
+/*   Updated: 2024/12/25 13:55:22 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int	get_index(int *rank, int val, int left, int right)
 		return (get_index(rank, val, left, mid - 1));
 	if (val > rank[mid])
 		return (get_index(rank, val, mid + 1, right));
+	return (-1);
 }
