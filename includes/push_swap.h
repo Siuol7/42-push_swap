@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/25 11:48:04 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/25 16:43:18 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,16 @@ int		mergesort(int **array, int left, int right);
 int		push_stack(t_pushswap *ps, int *rank, int *main_arr, int size);
 
 //stack_ops
-void	insert_node(t_stack *stack, t_node *node);
+int	insert_node(t_stack *stack, t_node *node);
+t_node	*pop_stack(t_stack *stack);
 
 //utils
 int		get_index(int *rank, int val, int left, int right);
 
-
-//utils
-int		get_index(int *rank, int val, int left, int right);
+//PS_OPS
+//push
+int		pa(t_pushswap *ps);
+int		pb(t_pushswap *ps);
 
 //MAIN
 int		utilities(int ac, char **av);

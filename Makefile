@@ -21,10 +21,13 @@ BONUS				:= ./srcs/bonus
 PARSING				:= parsing
 PRE_PS				:= pre_push_swap
 STACK				:= stack
+PS_OPS				:= ps_ops
 ERROR				:= error
 
 MAIN_C				:=	main.c				\
 						utilities.c
+
+PRE_PS_C			:= sorting.c			\
 
 PARSING_C			:=	number_parsing.c	\
 						parsing.c			\
@@ -34,7 +37,10 @@ STACK_C				:=	push_stack.c		\
 						stack_ops.c			\
 						utils.c
 
-PRE_PS_C			:= sorting.c			\
+PS_OPS_C			:=	push.c				\
+						swap.c				\
+						rotate.c			\
+						reverse.c
 
 ERROR_C				:= error_parsing.c
 
@@ -42,6 +48,7 @@ SRCS				:= 			$(addprefix ${MAIN}/,					${MAIN_C})			\
 								$(addprefix	${MANDATORY}/${PARSING}/,	${PARSING_C})		\
 								$(addprefix ${MANDATORY}/${PRE_PS}/,	${PRE_PS_C})		\
 								$(addprefix ${MANDATORY}/${STACK}/,		${STACK_C})			\
+								$(addprefix ${MANDATORY}/${PS_OPS}/,	${PS_OPS_C})		\
 								$(addprefix ${MANDATORY}/${ERROR}/,		${ERROR_C})
 
 #BONUS				:=

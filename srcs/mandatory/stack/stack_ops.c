@@ -6,28 +6,39 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 11:28:31 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/25 14:38:37 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/25 16:37:48 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int		pop_stack(t_stack *stack)
+t_node	*pop_stack(t_stack *stack)
 {
-	int	res;
+	t_node	*res;
 
 	if (!stack || !stack->top || !stack->bottom)
-		return (-1);
+		return (NULL);
 	if (stack->size == 1)
 	{
-		res = 
+		res = stack->top;
+		stack->top = NULL;
+		stack->bottom = NULL;
 	}
+	else
+	{
+		res = stack->top;
+		stack->top = stack->top->prev;
+		stack->top->next = NULL;
+		res->prev = NULL;
+	}
+	stack->size--;
+	return (res);
 }
 
-void	insert_node(t_stack *stack, t_node *node)
+int	insert_node(t_stack *stack, t_node *node)
 {
 	if (!stack || !node)
-		return ;
+		return (0);
 	if (stack->top == 0 && stack->bottom == 0)
 	{
 		stack->top = node;
@@ -40,5 +51,5 @@ void	insert_node(t_stack *stack, t_node *node)
 		stack->top = stack->top->next;
 	}
 	stack->size++;
-	return ;
+	return (1);
 }
