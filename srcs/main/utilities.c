@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:48:19 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/25 17:15:49 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/26 07:33:01 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,16 @@ int	utilities(int ac, char **av)
 		temp = temp->next;
 	}
 	temp = ps.stack_b->bottom;
-	ft_printf_fd(1, "Stack B\n");
+	ft_printf_fd(1, "\nStack B\n");
 	while (temp)
 	{
 		ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
 		temp = temp->next;
 	}
-	pa(&ps);
-	pa(&ps);
+	pb(&ps);
+	pb(&ps);
+	pb(&ps);
+	rrs(&ps);
 	ft_printf_fd(1, "\nafter\n");
 	temp = ps.stack_a->bottom;
 	ft_printf_fd(1, "Stack A\n");
@@ -64,7 +66,7 @@ int	utilities(int ac, char **av)
 		temp = temp->next;
 	}
 	temp = ps.stack_b->bottom;
-	ft_printf_fd(1, "Stack B\n");
+	ft_printf_fd(1, "\nStack B\n");
 	while (temp)
 	{
 		ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);

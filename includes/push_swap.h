@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/25 16:43:18 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/26 07:33:45 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,19 @@ int		get_index(int *rank, int val, int left, int right);
 
 //PS_OPS
 //push
-int		pa(t_pushswap *ps);
-int		pb(t_pushswap *ps);
+void		pa(t_pushswap *ps);
+void		pb(t_pushswap *ps);
+
+//swap
+void		ss(t_pushswap	*ps);
+void		sb(t_pushswap	*ps);
+void		sa(t_pushswap	*ps);
+
+
+//reverse
+void		rra(t_pushswap *ps);
+void		rrb(t_pushswap *ps);
+void 		rrs(t_pushswap *ps);
 
 //MAIN
 int		utilities(int ac, char **av);

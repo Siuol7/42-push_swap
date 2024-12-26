@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/24 09:32:54 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/26 11:14:58 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,15 @@ static int	premerge(int **array, int left, int mid, int right)
 	int		*L;
 	int		*R;
 
-	ft_bzero(&index, sizeof(index));
+	ft_bminus(&index, sizeof(index)); //ft_bminus
 	index.n1 = mid - left + 1;
 	index.n2 = right - mid;
 	L = (int *)malloc(index.n1 * sizeof(int));
 	R = (int *)malloc(index.n2 * sizeof(int));
-	while (index.i < index.n1)
-	{
+	while (++index.i < index.n1)
 		L[index.i] = (*array)[left + index.i];
-		index.i++;
-	}
-	while (index.j < index.n2)
-	{
+	while (++index.j < index.n2)
 		R[index.j] = (*array)[mid + 1 + index.j];
-		index.j++;
-	}
 	index.k = left;
 	merge(array, L, R, &index);
 	free(L);
