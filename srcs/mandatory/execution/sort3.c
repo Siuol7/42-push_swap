@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 05:18:27 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 08:45:33 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:15:56 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>>
+#include <push_swap.h>
 
 void	sort3(t_pushswap * ps)
 {

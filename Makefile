@@ -22,6 +22,7 @@ PARSING				:= parsing
 PRE_PS				:= pre_push_swap
 STACK				:= stack
 PS_OPS				:= ps_ops
+EXECUTION			:= execution
 ERROR				:= error
 
 MAIN_C				:=	main.c				\
@@ -42,6 +43,10 @@ PS_OPS_C			:=	push.c				\
 						rotate.c			\
 						reverse.c
 
+EXECUTION_C			:=	sort3.c				\
+						sort5.c				\
+						bigsort.c
+
 ERROR_C				:= error_parsing.c
 
 SRCS				:= 			$(addprefix ${MAIN}/,					${MAIN_C})			\
@@ -49,6 +54,7 @@ SRCS				:= 			$(addprefix ${MAIN}/,					${MAIN_C})			\
 								$(addprefix ${MANDATORY}/${PRE_PS}/,	${PRE_PS_C})		\
 								$(addprefix ${MANDATORY}/${STACK}/,		${STACK_C})			\
 								$(addprefix ${MANDATORY}/${PS_OPS}/,	${PS_OPS_C})		\
+								$(addprefix ${MANDATORY}/${EXECUTION}/, ${EXECUTION_C})		\
 								$(addprefix ${MANDATORY}/${ERROR}/,		${ERROR_C})
 
 #BONUS				:=

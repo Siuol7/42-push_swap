@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 11:01:40 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:15:02 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,13 @@ void 		rrs(t_pushswap *ps);
 void		ra(t_pushswap *ps);
 void		rb(t_pushswap *ps);
 void 		rr(t_pushswap *ps);
+
+//EXECUTION
+//sort3
+void		sort3(t_pushswap * ps);
+
+//sort5
+
 
 //MAIN
 int		utilities(int ac, char **av);

@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:13 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 04:30:15 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:15:42 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void	rb(t_pushswap *ps)
 
 void	rr(t_pushswap *ps)
 {
-	if (rotate(ps->stack_a && rotate(ps->stack_b)))
+	if (rotate(ps->stack_a) && rotate(ps->stack_b))
 		ft_printf_fd(1, "rr\n");
 }

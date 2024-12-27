@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 09:45:13 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 11:51:14 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:16:15 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	sort5(t_pushswap *ps)
 	}
 	else
 	{
-		lowest_pos = pos->stack_a->size - lowest_pos;
+		lowest_pos = ps->stack_a->size - lowest_pos;
 		while (lowest_pos--)
 			ra(ps);
 	}
