@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/26 11:14:58 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:17:15 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	premerge(int **array, int left, int mid, int right)
 	int		*L;
 	int		*R;
 
-	ft_bminus(&index, sizeof(index)); //ft_bminus
+	ft_bminus(&index, sizeof(index));
 	index.n1 = mid - left + 1;
 	index.n2 = right - mid;
 	L = (int *)malloc(index.n1 * sizeof(int));
