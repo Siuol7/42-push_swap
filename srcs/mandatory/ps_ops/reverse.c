@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:08 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 04:37:34 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 04:43:34 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	reverse(t_stack *stack)
 
 void	rra(t_pushswap *ps)
 {
-	if (reverse(ps->stack_a))
+	if (reverse(ps->stack_a)) 
 		ft_printf_fd(1, "rra\n");
 }
 
