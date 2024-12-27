@@ -65,7 +65,6 @@ OBJS				:= ${SRCS:.c=.o}
 
 #Default Target
 all:	${LIBFT} ${FT_PRINTF_FD} ${NAME}
-		@echo "Sources: ${SRCS}"
 
 #Compiling Rule
 %.o:	%.c

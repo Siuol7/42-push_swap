@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:13 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 13:15:42 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:42:13 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	rotate(t_stack *stack)
 void	ra(t_pushswap *ps)
 {
 	if (rotate(ps->stack_a))
-		ft_printf_fd(1, "ra\b");
+		ft_printf_fd(1, "ra\n");
 }
 
 void	rb(t_pushswap *ps)

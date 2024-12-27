@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 05:18:27 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 13:15:56 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:38:54 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,20 @@ void	sort3(t_pushswap * ps)
 	int mid;
 	int bot;
 
-	top = ps->stack_a->top->val;
+	bot = ps->stack_a->top->val;
 	mid = ps->stack_a->top->prev->val;
-	bot = ps->stack_a->bottom->val;
-	if (bot > mid && bot > top)
+	top = ps->stack_a->bottom->val;
+	if (bot > mid && bot > top && mid < top)
+		rra(ps);
+	else if (bot > mid && bot > top && mid > top)
 	{
-		if (mid < top)
-			rra(ps);
 		ra(ps);
 		sa(ps);
 	}
-	else if (mid > bot && mid > top)
-	{
-		if (top > bot)
-			sa(ps);
+	else if (mid > bot && mid > top && top > bot)
+		sa(ps);
+	else if (mid > bot && mid > top && top < bot)
 		ra(ps);
-	}
 	else if (top > bot && bot > mid)
 	{
 		rra(ps);

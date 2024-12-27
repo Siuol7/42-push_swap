@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:48:19 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 13:12:10 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:44:13 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,41 +36,39 @@ int	utilities(int ac, char **av)
 	if (!push_stack(&ps, rank, main_arr, vector_size))
 		return(error_return(rank, main_arr));
 
-	sort3(&ps);
+
 	ft_printf_fd(1, "before\n");
 	t_node	*temp;
-	temp = ps.stack_a->bottom;
+	temp = ps.stack_a->top;
 	ft_printf_fd(1, "Stack A\n");
 	while (temp)
 	{
 		ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-		temp = temp->next;
+		temp = temp->prev;
 	}
-	temp = ps.stack_b->bottom;
+	temp = ps.stack_b->top;
 	ft_printf_fd(1, "\nStack B\n");
 	while (temp)
 	{
 		ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-		temp = temp->next;
+		temp = temp->prev;
 	}
-	// pb(&ps);
-	// pb(&ps);
-	// pb(&ps);
-	// rr(&ps);
+	ft_printf_fd(1, "\nSteps:\n");
+	sort5(&ps);
 	ft_printf_fd(1, "\nafter\n");
-	temp = ps.stack_a->bottom;
+	temp = ps.stack_a->top;
 	ft_printf_fd(1, "Stack A\n");
 	while (temp)
 	{
 		ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-		temp = temp->next;
+		temp = temp->prev;
 	}
-	temp = ps.stack_b->bottom;
+	temp = ps.stack_b->top;
 	ft_printf_fd(1, "\nStack B\n");
 	while (temp)
 	{
 		ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-		temp = temp->next;
+		temp = temp->prev;
 	}
 
 	free(rank);

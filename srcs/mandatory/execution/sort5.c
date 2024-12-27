@@ -6,13 +6,13 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 09:45:13 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 13:16:15 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 15:11:57 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int		get_lowest(t_stack *stack)
+static int		get_lowest(t_stack *stack)
 {
 	int		min;
 	int		pos;
@@ -22,6 +22,7 @@ int		get_lowest(t_stack *stack)
 	min = INT_MAX;
 	pos = 0;
 	temp = stack->bottom;
+	lowest_pos = 0;
 	while (temp->next)
 	{
 		if (temp->val < min)
