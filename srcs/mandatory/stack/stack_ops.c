@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 11:28:31 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/25 16:37:48 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:23:18 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_node	*pop_stack(t_stack *stack)
 	return (res);
 }
 
-int	insert_node(t_stack *stack, t_node *node)
+int	 insert_node(t_stack *stack, t_node *node)
 {
 	if (!stack || !node)
 		return (0);

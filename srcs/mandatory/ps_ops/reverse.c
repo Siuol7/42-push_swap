@@ -6,13 +6,13 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:08 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/26 08:34:24 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/27 04:37:34 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	reverse(t_stack *stack)
+static int	reverse(t_stack *stack)
 {
 	t_node	*node;
 
@@ -21,22 +21,26 @@ static void	reverse(t_stack *stack)
 	stack->bottom->prev = NULL;
 	node->next = NULL;
 	node->prev = NULL;
-	insert_node(stack, node);
+	if (!insert_node(stack, node))
+		return (0);
+	return (1);
 }
 
 void	rra(t_pushswap *ps)
 {
-	reverse(ps->stack_a);
+	if (reverse(ps->stack_a))
+		ft_printf_fd(1, "rra\n");
 }
 
 void	rrb(t_pushswap *ps)
 {
-	reverse(ps->stack_b);
+	if (reverse(ps->stack_b))
+		ft_printf_fd(1,"rrb\n");
 }
 
 void	rrs(t_pushswap *ps)
 {
-	reverse(ps->stack_a);
-	reverse(ps->stack_b);
+	if (reverse(ps->stack_a) && reverse(ps->stack_b))
+		ft_printf_fd(1, "rrs\n");
 }
 
