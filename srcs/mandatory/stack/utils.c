@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:13:02 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/25 13:55:22 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/28 14:49:54 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	get_index(int *rank, int val, int left, int right)
 		return (-1);
 	mid = (left + right) / 2;
 	if (rank[mid] == val)
-		return (mid);
+		return (mid + 1);
 	if (val < rank[mid])
 		return (get_index(rank, val, left, mid - 1));
 	if (val > rank[mid])

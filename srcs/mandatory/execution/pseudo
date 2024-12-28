@@ -1,0 +1,30 @@
+
+#get_chunk_number -> chunk_no
+
+#get_chunk_size -> size / chunk_no
+
+#valid -> if (turn == 1) -> (0 < node->id < chunk_size)
+						-> (chunk_size * turn + 1 < node->id < chunk_size * (turn + 1))
+
+#get_pos -> times
+while bottom up && !valid(node->id)
+while topdown && !valid(node->id)
+if (b_u > t_d) -> return bu * -1
+				-> return td
+
+#pushing
+if (get_pos < 0)
+	times = times * -1
+	while (times--) -> rra
+else
+	while (times--) -> ra
+pb
+
+#sort back
+if node->prev->id == node->id + 1 => sb => pa -> 2 steps
+else ->chunk_rank steps
+	while node->prev->id != node->id + 1
+		ra;
+		times++;
+	while times--
+		rra;
