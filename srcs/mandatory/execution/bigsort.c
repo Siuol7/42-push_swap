@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 05:18:44 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/28 14:48:35 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/28 15:03:34 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 static int	get_chunk_no(int size)
 {
-}
-
-static int	get_chunk_size(int size)
-{
-	return (size, get_chunk_no(size));
 }
 
 static int	valid(int turn, int size, t_node *node)
@@ -56,7 +51,7 @@ static int	get_pos(int turn, int size, t_stack *stack_a)
 	return (top_down);
 }
 
-static void	pushing(int size, t_stack *stack_a)
+static void	pushing(int chunk_size, int chunk_no, t_stack *stack_a)
 {
 	int	turn;
 	int	times;
@@ -69,14 +64,14 @@ static void	pushing(int size, t_stack *stack_a)
 	}
 }
 
-void	bigsort(t_pushswap *ps, int size)
+void	a2b(t_pushswap *ps, int size)
 {
 	int	chunk_no;
 	int	chunk_size;
 	int	i;
 
 	i = 0;
-	chunk_no = get_chunk_no();
+	chunk_no = get_chunk_no(size);
 	chunk_size = size / chunk_no;
 	while ()
 
