@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 05:18:44 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/28 15:03:34 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/28 17:47:48 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,31 @@ static int	get_pos(int turn, int size, t_stack *stack_a)
 	return (top_down);
 }
 
-static void	pushing(int chunk_size, int chunk_no, t_stack *stack_a)
+static void	pushing(int turn, int chunk_size, int chunk_no, t_pushswap *ps)
 {
-	int	turn;
 	int	times;
 	int	i;
 
-	turn = 0;
 	while (turn < chunk_no)
 	{
-
+		i = -1;
+		while (++i < chunk_size)
+		{
+			times = get_pos(turn, chunk_size, ps->stack_a);
+			if (times < 0)
+			{
+				times = -times;
+				while (times--)
+					rra(ps);
+			}
+			else
+			{
+				while (times--)
+					ra(ps);
+			}
+			pb(ps);
+		}
+		turn++;
 	}
 }
 
@@ -73,6 +88,5 @@ void	a2b(t_pushswap *ps, int size)
 	i = 0;
 	chunk_no = get_chunk_no(size);
 	chunk_size = size / chunk_no;
-	while ()
-
+	pushing(0, chunk_size, chunk_no, ps);
 }
