@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 05:18:44 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/29 11:43:37 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/29 18:31:17 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 static int	get_chunk_number(int size)
 {
 	(void) size;
-	return (13);
+	return (11);
 }
 
 static int	valid(t_chunk chunk_id, t_node *node)
 {
 	if (chunk_id.left > node->id  && node->id > chunk_id.right)
 		return (0);
-	else
+	else if (chunk_id.left <= node->id && node->id <= chunk_id.right)
 	{
 		if (node->id > chunk_id.mid)
 			return (1);
 		else
 			return (2);
 	}
+	return (0);
 }
 
 static void	pushing(int size, t_chunk chunk_id, t_pushswap *ps)
@@ -39,7 +40,7 @@ static void	pushing(int size, t_chunk chunk_id, t_pushswap *ps)
 	while (size--)
 	{
 		temp = ps->stack_a->top;
-		status = valid(chunk_id, temp->id);
+		status = valid(chunk_id, temp);
 		if (!status)
 			ra(ps);
 		else if (status == 1)
@@ -47,7 +48,8 @@ static void	pushing(int size, t_chunk chunk_id, t_pushswap *ps)
 		else
 		{
 			pb(ps);
-			rb(ps);
+			if (ps->stack_b->size > 1)
+				rb(ps);
 		}
 	}
 }
@@ -58,19 +60,25 @@ void	a2b(t_pushswap *ps, int size)
 	int		times;
 	int		chunk_size;
 
-	ft_memset(&chunk_id, size / 2, sizeof(chunk_id));
+	if (!ps || !ps->stack_a || !ps->stack_b)
+        return;
+	chunk_id.left = size / 2;
+	chunk_id.right = size / 2;
+	chunk_id.mid = size / 2;
+
 	chunk_size = size / get_chunk_number(size);
 	times = get_chunk_number(size) / 2;
-	while (times--)
+	while (times)
 	{
 		chunk_id.left -= chunk_size;
 		chunk_id.right += chunk_size;
 		if (times == 1)
 		{
 			chunk_id.left = 0;
-			chunk_id.right = size - 3;
+			chunk_id.right = size - 4;
 		}
-		pushing(size, chunk_id, ps);
+		pushing(ps->stack_a->size, chunk_id, ps);
+		times--;
 	}
 	sort3(ps);
 }

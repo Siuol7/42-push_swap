@@ -6,73 +6,51 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 21:17:58 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/29 01:44:41 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/29 18:45:33 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int find_correct_position(t_stack *stack_a, int value)
+static int	find_pos(t_stack *stack, int id)
 {
-    if (!stack_a || !stack_a->top)
-        return 0;
+	t_node	*temp;
+	int		times;
 
-    t_node *current = stack_a->top;
-    int pos = 0;
-
-    while (current && current->val < value)
-    {
-        current = current->next;
-        pos++;
-    }
-
-    return pos;
+	temp = stack->top;
+	times = 0;
+	while (temp->prev && temp->id != id + 1)
+	{
+		temp = temp->prev;
+		times++;
+	}
+	if (temp->id != id + 1)
+		return (-1);
+	return (times);
 }
 
-static int find_min_value(t_stack *stack_a)
+void	b2a(t_pushswap *ps, int size)
 {
-    if (!stack_a || !stack_a->top)
-        return 0;
+	t_node	*temp;
+	int		times;
+	int		i;
 
-    t_node *current = stack_a->top;
-    int min_value = current->val;
-
-    while (current)
-    {
-        if (current->val < min_value)
-            min_value = current->val;
-        current = current->next;
-    }
-
-    return min_value;
-}
-
-void b2a(t_pushswap *ps, int size)
-{
-    if (!ps || !ps->stack_a || !ps->stack_b || !ps->stack_b->top)
-        return;
-    while (size-- && ps->stack_b->top)
-    {
-        t_node *temp = ps->stack_b->top;
-
-        int pos = find_correct_position(ps->stack_a, temp->val);
-
-        if (pos < ps->stack_a->size / 2)
-        {
-            while (pos-- > 0)
-                ra(ps);
-        }
-        else
-        {
-            while (ps->stack_a->size - pos-- > 0)
-                rra(ps);
-        }
-        pa(ps);
-    }
-    if (ps->stack_a && ps->stack_a->top)
-    {
-        int min_value = find_min_value(ps->stack_a);
-        while (ps->stack_a->top->val != min_value)
-            ra(ps);
-    }
+	while (size--)
+	{
+		if (ps->stack_b->top->id < ps->stack_b->top->prev->id)
+			sb(ps);
+		temp = ps->stack_b->top;
+		times = find_pos(ps->stack_a, temp->id);
+		if (times < 0)
+			pa(ps);
+		else
+		{
+			i = times;
+			while (i--)
+				ra(ps);
+			pa(ps);
+			while (times--)
+				rra(ps);
+		}
+	}
 }
