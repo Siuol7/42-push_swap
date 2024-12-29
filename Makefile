@@ -45,7 +45,8 @@ PS_OPS_C			:=	push.c				\
 
 EXECUTION_C			:=	sort3.c				\
 						sort5.c				\
-						bigsort.c
+						a2b.c				\
+						b2a.c
 
 ERROR_C				:= error_parsing.c
 

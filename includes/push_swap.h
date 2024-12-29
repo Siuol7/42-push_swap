@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 14:44:48 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/29 10:27:41 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ typedef struct s_sort
 	int n2;
 	int	dup;
 }	t_sort;
+
+typedef	struct s_chunk
+{
+	int	left;
+	int	right;
+	int	mid;
+}	t_chunk;
 
 typedef struct s_node
 {
@@ -45,6 +52,7 @@ typedef struct s_pushswap
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		steps;
 }	t_pushswap;
 
 
@@ -104,6 +112,11 @@ void		sort3(t_pushswap * ps);
 
 //sort5
 void		sort5(t_pushswap *ps);
+
+//BIGSORT
+//a2b
+void		a2b(t_pushswap *ps, int size);
+void		b2a(t_pushswap *ps, int size);
 
 //MAIN
 int		utilities(int ac, char **av);
