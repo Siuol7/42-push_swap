@@ -5,52 +5,65 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 21:17:58 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/29 18:45:33 by caonguye         ###   ########.fr       */
+/*   Created: 2024/07/01 15:56:44 by hitran            #+#    #+#             */
+/*   Updated: 2024/12/31 00:12:56 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
-static int	find_pos(t_stack *stack, int id)
+static int	find_target(t_stack *stack, int target)
 {
-	t_node	*temp;
-	int		times;
+	int		top_down;
+	int 	bottom_up;
+	t_node	*node;
 
-	temp = stack->top;
-	times = 0;
-	while (temp->prev && temp->id != id + 1)
+	top_down = 0;
+	bottom_up = 1;
+	node = stack->top;
+	while (node && node->id != target)
 	{
-		temp = temp->prev;
-		times++;
+		node = node->prev;
+		top_down++;
 	}
-	if (temp->id != id + 1)
-		return (-1);
-	return (times);
+	node = stack->bottom;
+	while (node && node->id != target)
+	{
+		node = node->next;
+		bottom_up++;
+	}
+	if (bottom_up < top_down)
+		return (bottom_up * -1);
+	return (top_down);
 }
 
-void	b2a(t_pushswap *ps, int size)
+static void	pushing(t_pushswap *ps, int steps)
 {
-	t_node	*temp;
-	int		times;
-	int		i;
-
-	while (size--)
+	if (steps < 0)
 	{
-		if (ps->stack_b->top->id < ps->stack_b->top->prev->id)
-			sb(ps);
-		temp = ps->stack_b->top;
-		times = find_pos(ps->stack_a, temp->id);
-		if (times < 0)
-			pa(ps);
-		else
-		{
-			i = times;
-			while (i--)
-				ra(ps);
-			pa(ps);
-			while (times--)
-				rra(ps);
-		}
+		steps = -steps;
+		while (steps--)
+			rrb(ps);
+	}
+	else if (steps > 0)
+	{
+		while (steps--)
+			rb(ps);
+	}
+	else if (steps == 1)
+		sb(ps);
+	pa(ps);
+}
+
+void	b2a(t_pushswap *ps)
+{
+	int	target;
+	int	steps;
+
+	while (ps->stack_b->size > 0)
+	{
+		target = ps->stack_b->size - 1;
+		steps = find_target(ps->stack_b, target);
+		pushing(ps, steps);
 	}
 }

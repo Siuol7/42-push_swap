@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/29 10:27:41 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/30 21:49:30 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	insert_node(t_stack *stack, t_node *node);
 t_node	*pop_stack(t_stack *stack);
 
 //utils
-int		get_index(int *rank, int val, int left, int right);
+int		get_id(int *rank, int val, int left, int right);
 
 //PS_OPS
 //push
@@ -116,7 +116,7 @@ void		sort5(t_pushswap *ps);
 //BIGSORT
 //a2b
 void		a2b(t_pushswap *ps, int size);
-void		b2a(t_pushswap *ps, int size);
+void		b2a(t_pushswap *ps);
 
 //MAIN
 int		utilities(int ac, char **av);

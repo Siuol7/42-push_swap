@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 20:40:03 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/19 10:58:08 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/29 19:24:01 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 }
 // #include <stdio.h>
 
-// void	ft_printlst(t_list **head)
+// void	ft_printlst(t_list **top)
 // {
 // 	t_list	*temp;
 
-// 	temp = *head;
-// 	if (!*head)
+// 	temp = *top;
+// 	if (!*top)
 // 		return ;
 // 	while (temp)
 // 	{
@@ -48,12 +48,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 // {
 // 	char	x[5] = "abcd";
 // 	char	y[6] = "abcde";
-// 	t_list *head = NULL;
+// 	t_list *top = NULL;
 // 	t_list *node1 = ft_lstnew((void *)x);
 // 	t_list	*node2 = ft_lstnew((void *)y);
 
-// 	ft_lstadd_back(&head, node1);
-// 	ft_lstadd_back(&head,node2);
-// 	ft_printlst(&head);
+// 	ft_lstadd_back(&top, node1);
+// 	ft_lstadd_back(&top,node2);
+// 	ft_printlst(&top);
 // 	return(0);
 // }

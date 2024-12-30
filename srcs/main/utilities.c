@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:48:19 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/29 17:31:20 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/30 23:24:11 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	utilities(int ac, char **av)
 	// 	temp = temp->prev;
 	// }
 
-	b2a(&ps, vector_size);
+	b2a(&ps);
 	// ft_printf_fd(1, "\nafter\n");
 	// temp = ps.stack_a->top;
 	// ft_printf_fd(1, "Stack A\n");

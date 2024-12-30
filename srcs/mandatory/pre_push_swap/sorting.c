@@ -6,78 +6,78 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 16:17:15 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/29 19:24:12 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	fillright(int **array, int *R, t_sort *index)
+static void	fillright(int **array, int *R, t_sort *id)
 {
-	while (index->j < index->n2)
+	while (id->j < id->n2)
 	{
-		(*array)[index->k] = R[index->j];
-		index->j++;
-		index->k++;
+		(*array)[id->k] = R[id->j];
+		id->j++;
+		id->k++;
 	}
 }
 
-static void	fillleft(int **array, int *L, t_sort *index)
+static void	fillleft(int **array, int *L, t_sort *id)
 {
-	while (index->i < index->n1)
+	while (id->i < id->n1)
 	{
-		(*array)[index->k] = L[index->i];
-		index->i++;
-		index->k++;
+		(*array)[id->k] = L[id->i];
+		id->i++;
+		id->k++;
 	}
 }
 
-static void	merge(int **array, int *L, int *R, t_sort *index)
+static void	merge(int **array, int *L, int *R, t_sort *id)
 {
-	index->i = 0;
-	index->j = 0;
-	while (index->i < index->n1 && index->j < index->n2)
+	id->i = 0;
+	id->j = 0;
+	while (id->i < id->n1 && id->j < id->n2)
 	{
-		if (L[index->i] == R[index->j])
-			index->dup = 1;
-		if (L[index->i] <= R[index->j])
+		if (L[id->i] == R[id->j])
+			id->dup = 1;
+		if (L[id->i] <= R[id->j])
 		{
-			(*array)[index->k] = L[index->i];
-			index->i++;
-			index->k++;
+			(*array)[id->k] = L[id->i];
+			id->i++;
+			id->k++;
 		}
 		else
 		{
-			(*array)[index->k] = R[index->j];
-			index->j++;
-			index->k++;
+			(*array)[id->k] = R[id->j];
+			id->j++;
+			id->k++;
 		}
 	}
-	fillleft(array, L, index);
-	fillright(array, R, index);
+	fillleft(array, L, id);
+	fillright(array, R, id);
 
 }
 
 static int	premerge(int **array, int left, int mid, int right)
 {
-	t_sort index;
+	t_sort id;
 	int		*L;
 	int		*R;
 
-	ft_bminus(&index, sizeof(index));
-	index.n1 = mid - left + 1;
-	index.n2 = right - mid;
-	L = (int *)malloc(index.n1 * sizeof(int));
-	R = (int *)malloc(index.n2 * sizeof(int));
-	while (++index.i < index.n1)
-		L[index.i] = (*array)[left + index.i];
-	while (++index.j < index.n2)
-		R[index.j] = (*array)[mid + 1 + index.j];
-	index.k = left;
-	merge(array, L, R, &index);
+	ft_bminus(&id, sizeof(id));
+	id.n1 = mid - left + 1;
+	id.n2 = right - mid;
+	L = (int *)malloc(id.n1 * sizeof(int));
+	R = (int *)malloc(id.n2 * sizeof(int));
+	while (++id.i < id.n1)
+		L[id.i] = (*array)[left + id.i];
+	while (++id.j < id.n2)
+		R[id.j] = (*array)[mid + 1 + id.j];
+	id.k = left;
+	merge(array, L, R, &id);
 	free(L);
 	free(R);
-	if (index.dup == 1)
+	if (id.dup == 1)
 		return (0);
 	return (1);
 }

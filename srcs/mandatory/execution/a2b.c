@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 05:18:44 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/29 18:31:17 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 00:08:18 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	get_chunk_number(int size)
 {
 	(void) size;
-	return (11);
+	return (22);
 }
 
 static int	valid(t_chunk chunk_id, t_node *node)

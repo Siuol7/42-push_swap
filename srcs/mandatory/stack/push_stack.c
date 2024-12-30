@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:37:54 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 11:01:51 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/29 19:24:12 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_stack	*stack_generating(int *rank, int *main_arr, int size)
 		if (!node)
 			return (NULL);
 		node->val = main_arr[i];
-		node->id = get_index(rank, main_arr[i], 0, size);
+		node->id = get_id(rank, main_arr[i], 0, size);
 		if (node->id == -1)
 			return (NULL);
 		insert_node(stack_a, node);
