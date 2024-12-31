@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 15:56:44 by hitran            #+#    #+#             */
-/*   Updated: 2024/12/31 00:12:56 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:13:57 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	find_target(t_stack *stack, int target)
 {
 	int		top_down;
-	int 	bottom_up;
+	int		bottom_up;
 	t_node	*node;
 
 	top_down = 0;
@@ -32,7 +32,7 @@ static int	find_target(t_stack *stack, int target)
 		node = node->next;
 		bottom_up++;
 	}
-	if (bottom_up < top_down)
+	if (bottom_up <= top_down)
 		return (bottom_up * -1);
 	return (top_down);
 }

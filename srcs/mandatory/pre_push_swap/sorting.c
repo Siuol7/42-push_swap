@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/29 19:24:12 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:09:13 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,28 +55,27 @@ static void	merge(int **array, int *L, int *R, t_sort *id)
 	}
 	fillleft(array, L, id);
 	fillright(array, R, id);
-
 }
 
 static int	premerge(int **array, int left, int mid, int right)
 {
-	t_sort id;
-	int		*L;
-	int		*R;
+	t_sort	id;
+	int		*l;
+	int		*r;
 
 	ft_bminus(&id, sizeof(id));
 	id.n1 = mid - left + 1;
 	id.n2 = right - mid;
-	L = (int *)malloc(id.n1 * sizeof(int));
-	R = (int *)malloc(id.n2 * sizeof(int));
+	l = (int *)malloc(id.n1 * sizeof(int));
+	r = (int *)malloc(id.n2 * sizeof(int));
 	while (++id.i < id.n1)
-		L[id.i] = (*array)[left + id.i];
+		l[id.i] = (*array)[left + id.i];
 	while (++id.j < id.n2)
-		R[id.j] = (*array)[mid + 1 + id.j];
+		r[id.j] = (*array)[mid + 1 + id.j];
 	id.k = left;
-	merge(array, L, R, &id);
-	free(L);
-	free(R);
+	merge(array, l, r, &id);
+	free(l);
+	free(r);
 	if (id.dup == 1)
 		return (0);
 	return (1);

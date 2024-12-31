@@ -6,11 +6,31 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 11:28:31 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/26 17:23:18 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:09:54 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+void	clean_stack(t_pushswap *ps)
+{
+	t_node	*node;
+
+	while (ps->stack_a->top)
+	{
+		node = ps->stack_a->top;
+		ps->stack_a->top = ps->stack_a->top->prev;
+		free(node);
+	}
+	free(ps->stack_a);
+	while (ps->stack_b->top)
+	{
+		node = ps->stack_b->top;
+		ps->stack_b->top = ps->stack_b->top->prev;
+		free(node);
+	}
+	free(ps->stack_b);
+}
 
 t_node	*pop_stack(t_stack *stack)
 {
@@ -35,7 +55,7 @@ t_node	*pop_stack(t_stack *stack)
 	return (res);
 }
 
-int	 insert_node(t_stack *stack, t_node *node)
+int	insert_node(t_stack *stack, t_node *node)
 {
 	if (!stack || !node)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:59:48 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/24 10:17:49 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:07:32 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static char	**digit_parsing(int len, char **av)
 	char	**temp;
 
 	i = 0;
-	final = malloc((len + 1)*sizeof(char *));
+	final = malloc((len + 1) * sizeof(char *));
 	if (!final)
 		return (NULL);
 	final[len] = NULL;
 	while (i < len)
 	{
 		j = 0;
-		temp = ft_split_allspace(*av); 
+		temp = ft_split_allspace(*av);
 		if (!temp)
 		{
 			ft_free_process_2d(final, i - 1);

@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/30 21:49:30 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 01:52:58 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ typedef struct s_sort
 	int	i;
 	int	j;
 	int	k;
-	int n1;
-	int n2;
+	int	n1;
+	int	n2;
 	int	dup;
 }	t_sort;
 
-typedef	struct s_chunk
+typedef struct s_chunk
 {
 	int	left;
 	int	right;
@@ -55,15 +55,13 @@ typedef struct s_pushswap
 	int		steps;
 }	t_pushswap;
 
-
-
 //ERROR
 //error_parsing
 void	error_parsing(char **a, char **b);
 
 //PARSING
 //parsing
-int	*parsing(char **av, int *size);
+int		*parsing(char **av, int *size);
 
 //number parsing
 int		*number_parsing(int len, char **av);
@@ -79,44 +77,44 @@ int		mergesort(int **array, int left, int right);
 int		push_stack(t_pushswap *ps, int *rank, int *main_arr, int size);
 
 //stack_ops
-int	insert_node(t_stack *stack, t_node *node);
+int		insert_node(t_stack *stack, t_node *node);
 t_node	*pop_stack(t_stack *stack);
+void	clean_stack(t_pushswap *ps);
 
 //utils
 int		get_id(int *rank, int val, int left, int right);
 
 //PS_OPS
 //push
-void		pa(t_pushswap *ps);
-void		pb(t_pushswap *ps);
+void	pa(t_pushswap *ps);
+void	pb(t_pushswap *ps);
 
 //swap
-void		ss(t_pushswap	*ps);
-void		sb(t_pushswap	*ps);
-void		sa(t_pushswap	*ps);
-
+void	ss(t_pushswap	*ps);
+void	sb(t_pushswap	*ps);
+void	sa(t_pushswap	*ps);
 
 //reverse
-void		rra(t_pushswap *ps);
-void		rrb(t_pushswap *ps);
-void 		rrs(t_pushswap *ps);
+void	rra(t_pushswap *ps);
+void	rrb(t_pushswap *ps);
+void	rrs(t_pushswap *ps);
 
 //rotate
-void		ra(t_pushswap *ps);
-void		rb(t_pushswap *ps);
-void 		rr(t_pushswap *ps);
+void	ra(t_pushswap *ps);
+void	rb(t_pushswap *ps);
+void	rr(t_pushswap *ps);
 
 //EXECUTION
 //sort3
-void		sort3(t_pushswap * ps);
+void	sort3(t_pushswap *ps);
 
 //sort5
-void		sort5(t_pushswap *ps);
+void	sort5(t_pushswap *ps);
 
 //BIGSORT
 //a2b
-void		a2b(t_pushswap *ps, int size);
-void		b2a(t_pushswap *ps);
+void	a2b(t_pushswap *ps, int size);
+void	b2a(t_pushswap *ps);
 
 //MAIN
 int		utilities(int ac, char **av);

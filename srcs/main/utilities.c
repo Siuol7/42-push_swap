@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:48:19 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/30 23:24:11 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:14:23 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,60 +34,10 @@ int	utilities(int ac, char **av)
 	if (!mergesort(&rank, 0, vector_size - 1))
 		return (error_return(rank, main_arr));
 	if (!push_stack(&ps, rank, main_arr, vector_size))
-		return(error_return(rank, main_arr));
-
-	// ps.steps = 0;
-	// ft_printf_fd(1, "before\n");
-	// t_node	*temp;
-	// temp = ps.stack_a->top;
-	// ft_printf_fd(1, "Stack A\n");
-	// while (temp)
-	// {
-	// 	ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-	// 	temp = temp->prev;
-	// }
-	// temp = ps.stack_b->top;
-	// ft_printf_fd(1, "\nStack B\n");
-	// while (temp)
-	// {
-	// 	ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-	// 	temp = temp->prev;
-	// }
-	//sort5(&ps);
+		return (error_return(rank, main_arr));
 	a2b(&ps, vector_size);
-	// ft_printf_fd(1, "\nafter\n");
-	// temp = ps.stack_a->top;
-	// ft_printf_fd(1, "Stack A\n");
-	// while (temp)
-	// {
-	// 	ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-	// 	temp = temp->prev;
-	// }
-	// temp = ps.stack_b->top;
-	// ft_printf_fd(1, "\nStack B\n");
-	// while (temp)
-	// {
-	// 	ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-	// 	temp = temp->prev;
-	// }
-
 	b2a(&ps);
-	// ft_printf_fd(1, "\nafter\n");
-	// temp = ps.stack_a->top;
-	// ft_printf_fd(1, "Stack A\n");
-	// while (temp)
-	// {
-	// 	ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-	// 	temp = temp->prev;
-	// }
-	// temp = ps.stack_b->top;
-	// ft_printf_fd(1, "\nStack B\n");
-	// while (temp)
-	// {
-	// 	ft_printf_fd(1, "id-%d: val-%d\n", temp->id, temp->val);
-	// 	temp = temp->prev;
-	// }
-
+	clean_stack(&ps);
 	free(rank);
 	free(main_arr);
 	return (1);

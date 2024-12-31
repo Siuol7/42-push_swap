@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 05:18:44 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/31 00:08:18 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:13:39 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 static int	get_chunk_number(int size)
 {
 	(void) size;
-	return (22);
+	return (2);
 }
 
 static int	valid(t_chunk chunk_id, t_node *node)
 {
-	if (chunk_id.left > node->id  && node->id > chunk_id.right)
+	if (chunk_id.left > node->id && node->id > chunk_id.right)
 		return (0);
 	else if (chunk_id.left <= node->id && node->id <= chunk_id.right)
 	{
@@ -61,11 +61,10 @@ void	a2b(t_pushswap *ps, int size)
 	int		chunk_size;
 
 	if (!ps || !ps->stack_a || !ps->stack_b)
-        return;
+		return ;
 	chunk_id.left = size / 2;
 	chunk_id.right = size / 2;
 	chunk_id.mid = size / 2;
-
 	chunk_size = size / get_chunk_number(size);
 	times = get_chunk_number(size) / 2;
 	while (times)

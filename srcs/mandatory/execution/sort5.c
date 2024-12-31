@@ -6,13 +6,13 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 09:45:13 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 15:11:57 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 02:12:28 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int		get_lowest(t_stack *stack)
+static int	get_lowest(t_stack *stack)
 {
 	int		min;
 	int		pos;
