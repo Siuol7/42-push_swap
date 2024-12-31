@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 05:18:44 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/31 02:13:39 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 04:05:18 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	get_chunk_number(int size)
 {
 	(void) size;
-	return (2);
+	return (11);
 }
 
 static int	valid(t_chunk chunk_id, t_node *node)
@@ -44,7 +44,12 @@ static void	pushing(int size, t_chunk chunk_id, t_pushswap *ps)
 		if (!status)
 			ra(ps);
 		else if (status == 1)
+		{
 			pb(ps);
+			if (ps->stack_b->size > 1
+				&& ps->stack_b->top->id < ps->stack_b->top->prev->id)
+				sb(ps);
+		}
 		else
 		{
 			pb(ps);

@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 15:56:44 by hitran            #+#    #+#             */
-/*   Updated: 2024/12/31 02:13:57 by caonguye         ###   ########.fr       */
+/*   Updated: 2024/12/31 03:48:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,14 @@ static void	pushing(t_pushswap *ps, int steps)
 	}
 	else if (steps > 0)
 	{
-		while (steps--)
+		while (steps > 1)
+		{
 			rb(ps);
+			steps--;
+		}
+		if (steps == 1)
+			sb(ps);
 	}
-	else if (steps == 1)
-		sb(ps);
 	pa(ps);
 }
 
