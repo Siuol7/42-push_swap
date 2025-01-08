@@ -6,9 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:36:16 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/08 13:36:29 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/08 14:23:14 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 char	*ft_strdup_printf(char *s)
 {

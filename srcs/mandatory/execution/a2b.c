@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 05:18:44 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/08 12:55:56 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:55:16 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static int	get_chunk_number(int size)
 {
-	if (size <= 100)
+	if (size <= 10)
+		return (2);
+	else if (size <= 100)
 		return (4);
 	return (10);
 }

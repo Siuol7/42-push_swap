@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/08 11:42:24 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/08 18:40:45 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int		*number_parsing(int len, char **av);
 
 //utils
 int		number_count(char **av);
+int		check_duplicate(int *rank, int size);
+int		compare(int *rank, int *main_arr, int size);
 
 //pre push_swap
 int		mergesort(int **array, int left, int right);
@@ -113,6 +115,6 @@ void	a2b(t_pushswap *ps, int size);
 void	b2a(t_pushswap *ps);
 
 //MAIN
-int		utilities(int ac, char **av);
+int		utilities(char **av);
 
 #endif

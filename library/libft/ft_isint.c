@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:44:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/08 13:00:37 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/08 18:24:54 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int	ft_isint(char *str)
 		if (str[i] == '-')
 			sign = -1;
 		i++;
+		if (!str[i])
+			return (0);
 	}
 	while ('0' <= str[i] && str[i] <= '9')
 	{
-		res = res * 10 + (str[i] + 48);
+		res = res * 10 + (str[i] - 48);
 		if (res * sign < (long)INT_MIN || res * sign > (long) INT_MAX)
 			return (0);
 		i++;
