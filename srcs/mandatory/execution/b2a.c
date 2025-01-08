@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 15:56:44 by caonguye            #+#    #+#             */
-/*   Updated: 2025/01/08 11:24:18 by caonguye         ###   ########.fr       */
+/*   Created: 2025/01/08 13:37:41 by caonguye          #+#    #+#             */
+/*   Updated: 2025/01/08 13:38:48 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,19 +91,21 @@ void	b2a(t_pushswap *ps)
 	int	ra_steps;
 	int	rra_steps;
 	int	target;
+	int	median;
 
 	ra_steps = 0;
 	rra_steps = 0;
 	target = ps->stack_b->size - 1;
 	while (ps->stack_b->size || ra_steps > 0 || rra_steps > 0)
 	{
+		median = ps->stack_b->size / 2;
 		if (sort_a(ps, &ra_steps, &rra_steps, &target))
 			continue ;
 		else if (push_target(ps, &ra_steps, &rra_steps, &target))
 			continue ;
 		else if (pushing(ps, &ra_steps, &rra_steps))
 			continue ;
-		else if (find_pos(ps->stack_b, target, ps->stack_b->size) > (ps->stack_b->size / 2))
+		else if (find_pos(ps->stack_b, target, ps->stack_b->size) > median)
 			rrb(ps);
 		else if (find_pos(ps->stack_b, target, ps->stack_b->size) > -1)
 			rb(ps);

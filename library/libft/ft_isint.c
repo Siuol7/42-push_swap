@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:44:35 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/22 16:32:15 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:00:37 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_isint(char *str)
 {
-	int	i;
-	int sign;
-	long res;
+	int		i;
+	int		sign;
+	long	res;
 
 	i = 0;
 	sign = 1;
