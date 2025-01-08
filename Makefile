@@ -44,7 +44,6 @@ PS_OPS_C			:=	push.c				\
 						reverse.c
 
 EXECUTION_C			:=	sort3.c				\
-						sort5.c				\
 						a2b.c				\
 						b2a.c
 

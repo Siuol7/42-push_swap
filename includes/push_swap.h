@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/08 03:54:49 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/08 11:42:24 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,7 @@ void	rr(t_pushswap *ps);
 //sort3
 void	sort3(t_pushswap *ps);
 
-//sort5
-void	sort5(t_pushswap *ps);
-
-//BIGSORT
-//a2b
+//bigsort
 void	a2b(t_pushswap *ps, int size);
 void	b2a(t_pushswap *ps);
 
