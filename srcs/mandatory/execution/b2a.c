@@ -6,67 +6,106 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 15:56:44 by hitran            #+#    #+#             */
-/*   Updated: 2024/12/31 03:48:25 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/08 04:09:12 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_target(t_stack *stack, int target)
+static int	get_position(t_stack *stack, int highest, int size)
 {
-	int		top_down;
-	int		bottom_up;
+	int		position;
 	t_node	*node;
 
-	top_down = 0;
-	bottom_up = 1;
 	node = stack->top;
-	while (node && node->id != target)
+	position = 0;
+	while (position < size && node)
 	{
+		if (node->id == highest)
+			return (position);
+		position++;
 		node = node->prev;
-		top_down++;
 	}
-	node = stack->bottom;
-	while (node && node->id != target)
-	{
-		node = node->next;
-		bottom_up++;
-	}
-	if (bottom_up <= top_down)
-		return (bottom_up * -1);
-	return (top_down);
+	return (-1);
 }
 
-static void	pushing(t_pushswap *ps, int steps)
+static int	sort_a(t_pushswap *ps, int *ra_steps, int *rra_steps, int *highest)
 {
-	if (steps < 0)
+	if (ps->stack_a->size == 0)
+		return (0);
+	if (ps->stack_a->bottom->id == *highest)
 	{
-		steps = -steps;
-		while (steps--)
-			rrb(ps);
+		rra(ps);
+		(*rra_steps)--;
+		(*highest)--;
+		return (1);
 	}
-	else if (steps > 0)
+	else if (get_position(ps->stack_a, *highest, *ra_steps) != -1)
 	{
-		while (steps > 1)
-		{
-			rb(ps);
-			steps--;
-		}
-		if (steps == 1)
-			sb(ps);
+		(*ra_steps)--;
+		(*highest)--;
+		return (1);
+	}
+	return (0);
+}
+
+static int	push_highest(t_pushswap *ps, int *ra_steps,
+				int *rra_steps, int *highest)
+{
+	if (!ps->stack_b->size || *highest != ps->stack_b->top->id)
+		return (0);
+	while (*ra_steps > 1)
+	{
+		ra(ps);
+		(*ra_steps)--;
+		(*rra_steps)++;
 	}
 	pa(ps);
+	if (*ra_steps == 1)
+		sa(ps);
+	(*highest)--;
+	return (1);
+}
+
+static int	can_push_to_a(t_pushswap *ps, int *ra_steps, int *rra_steps)
+{
+	if (!ps->stack_b->size)
+		return (0);
+	if ((*rra_steps == 0 || ps->stack_b->top->id > ps->stack_a->bottom->id))
+	{
+		while (*ra_steps && ps->stack_b->top->id > ps->stack_a->top->id)
+		{
+			ra(ps);
+			(*ra_steps)--;
+			(*rra_steps)++;
+		}
+		pa(ps);
+		(*ra_steps)++;
+		return (1);
+	}
+	return (0);
 }
 
 void	b2a(t_pushswap *ps)
 {
-	int	target;
-	int	steps;
+	int	ra_steps;
+	int	rra_steps;
+	int	highest;
 
-	while (ps->stack_b->size > 0)
+	ra_steps = 0;
+	rra_steps = 0;
+	highest = ps->stack_b->size - 1;
+	while (ps->stack_b->size || ra_steps > 0 || rra_steps > 0)
 	{
-		target = ps->stack_b->size - 1;
-		steps = find_target(ps->stack_b, target);
-		pushing(ps, steps);
+		if (sort_a(ps, &ra_steps, &rra_steps, &highest))
+			continue ;
+		else if (push_highest(ps, &ra_steps, &rra_steps, &highest))
+			continue ;
+		else if (can_push_to_a(ps, &ra_steps, &rra_steps))
+			continue ;
+		else if (get_position(ps->stack_b, highest, ps->stack_b->size) > (ps->stack_b->size / 2))
+			rrb(ps);
+		else if (get_position(ps->stack_b, highest, ps->stack_b->size) > -1)
+			rb(ps);
 	}
 }

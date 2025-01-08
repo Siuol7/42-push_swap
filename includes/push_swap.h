@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/31 01:52:58 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/08 03:54:49 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	sa(t_pushswap	*ps);
 //reverse
 void	rra(t_pushswap *ps);
 void	rrb(t_pushswap *ps);
-void	rrs(t_pushswap *ps);
+void	rrr(t_pushswap *ps);
 
 //rotate
 void	ra(t_pushswap *ps);
