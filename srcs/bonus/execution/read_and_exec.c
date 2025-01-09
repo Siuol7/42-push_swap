@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:54:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 07:39:29 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 08:03:10 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,49 @@
 
 static void 	parse_ops(t_pushswap*ps, char *ops)
 {
-	if (ops == "ra")
+	if (ft_strcmp(ops,"ra") == 0)
 		ra_bn(ps);
-	else if (ops == "rb")
+	else if (ft_strcmp(ops, "rb") == 0)
 		rb_bn(ps);
-	else if (ops == "rr")
+	else if (ft_strcmp(ops, "rr") == 0)
 		rr_bn(ps);
-	else if (ops == "rra")
+	else if (ft_strcmp(ops, "rra") == 0)
 		rra_bn(ps);
-	else if (ops == "rrb")
+	else if (ft_strcmp(ops, "rrb") == 0)
 		rrb_bn(ps);
-	else if (ops == "rrr")
+	else if (ft_strcmp(ops, "rrr") == 0)
 		rrr_bn(ps);
-	else if (ops == "sa")
+	else if (ft_strcmp(ops, "sa") == 0)
 		sa_bn(ps);
-	else if (ops == "sb")
+	else if (ft_strcmp(ops, "sb") == 0)
 		sb_bn(ps);
-	else if (ops == "ss")
+	else if (ft_strcmp(ops, "ss") == 0)
 		ss_bn(ps);
-	else if (ops == "pa")
+	else if (ft_strcmp(ops, "pa") == 0)
 		pa_bn(ps);
-	else if (ops == "pb")
+	else if (ft_strcmp(ops, "pb") == 0)
 		pb_bn(ps);
 	else
 		return ;
 }
 
-static get_ops(char *ops)
+static char *get_ops(t_pushswap *ps, char *line)
 {
-	
+	int		length;
+	char	*ops;
+
+	length = ft_strlen(line);
+	ops = malloc(length);
+	if (!ops)
+		return (NULL);
+	ft_memcpy(ops, line, length - 1);
+	ops[length - 1] = '\0';
+	parse_ops(ps, ops);
+	free(ops);
+	return (ops);
 }
 
-void	read_and_exec(t_pushswap *ps)
+int	read_and_exec(t_pushswap *ps)
 {
 	int		readbytes;
 	char	line[5];
@@ -53,13 +64,18 @@ void	read_and_exec(t_pushswap *ps)
 	while (1)
 	{
 		readbytes = read(0, line, 4);
-		if (readbytes < 0 || line[readbytes - 1] != '\n')
+		if (readbytes < 0)
 		{
 			ft_printf_fd(2, "Error\n");
-			return ;
+			return (0);
 		}
 		else if (readbytes == 0)
-			return ;
-		parse_ops(ps, get_ops(line));
+			return (1);
+		line[readbytes] = '\0';
+		if ((line[readbytes - 1] != '\n') || !get_ops(ps, line))
+		{
+			ft_printf_fd(2, "Error\n");
+			return (0);
+		}
 	}
 }
