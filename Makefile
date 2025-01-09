@@ -1,4 +1,5 @@
 NAME	:= push_swap
+BONUS	:= checker
 CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror
 
@@ -26,7 +27,9 @@ EXECUTION			:= execution
 ERROR				:= error
 
 MAIN_C				:=	main.c				\
-						utilities.c
+						utilities.c 		\
+						main_bonus.c		\
+						checker.c
 
 PRE_PS_C			:= sorting.c			\
 
@@ -49,6 +52,32 @@ EXECUTION_C			:=	sort3.c				\
 
 ERROR_C				:= error_parsing.c
 
+MAIN_BN_C				:=	main.c				\
+						utilities.c 		\
+						main_bonus.c		\
+						checker.c
+
+PRE_PS_BN_C			:= sorting.c			\
+
+PARSING__BN_C			:=	number_parsing.c	\
+						parsing.c			\
+						utils.c
+
+STACK_BN_C				:=	push_stack.c		\
+						stack_ops.c			\
+						utils.c
+
+PS_OPS_BN_C			:=	push.c				\
+						swap.c				\
+						rotate.c			\
+						reverse.c
+
+EXECUTION_C			:=	sort3.c				\
+						a2b.c				\
+						b2a.c
+
+ERROR_C				:= error_parsing.c
+
 SRCS				:= 			$(addprefix ${MAIN}/,					${MAIN_C})			\
 								$(addprefix	${MANDATORY}/${PARSING}/,	${PARSING_C})		\
 								$(addprefix ${MANDATORY}/${PRE_PS}/,	${PRE_PS_C})		\
@@ -57,11 +86,11 @@ SRCS				:= 			$(addprefix ${MAIN}/,					${MAIN_C})			\
 								$(addprefix ${MANDATORY}/${EXECUTION}/, ${EXECUTION_C})		\
 								$(addprefix ${MANDATORY}/${ERROR}/,		${ERROR_C})
 
-#BONUS				:=
+BONUS				:=
 
 OBJS				:= ${SRCS:.c=.o}
 
-#OBJS_BN			:= ${BONUS:.c=.o}
+OBJS_BN				:= ${BONUS:.c=.o}
 
 #Default Target
 all:	${LIBFT} ${FT_PRINTF_FD} ${NAME}
