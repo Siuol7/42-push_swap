@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:18:39 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:43:23 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 07:28:34 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../library/ft_printf_fd/ft_printf.h"
 # include "../library/libft/libft.h"
+# include <fcntl.h>
 
 typedef struct s_sort
 {

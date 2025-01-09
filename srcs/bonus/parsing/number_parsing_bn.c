@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:59:48 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:40:49 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 06:54:56 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <checker.h>
 
 static char	**digit_parsing(int len, char **av)
 {

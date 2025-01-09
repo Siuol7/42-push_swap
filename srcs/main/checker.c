@@ -6,13 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:41 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:22:41 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 06:55:34 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <checker.h>
-
-
 
 static int	error_return_bn(int *rank, int *main_arr)
 {

@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:02:29 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:41:06 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 06:55:03 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <checker.h>
 
 static int	single_count_bn(char *av)
 {

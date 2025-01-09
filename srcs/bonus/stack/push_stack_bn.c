@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_stack.c                                       :+:      :+:    :+:   */
+/*   push_stack_bn.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:37:54 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:43:36 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 06:55:17 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <checker.h>
 
 static t_stack	*stack_generating(int *rank, int *main_arr, int size)
 {

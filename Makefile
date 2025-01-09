@@ -28,8 +28,6 @@ ERROR				:= error
 
 MAIN_C				:=	main.c				\
 						utilities.c 		\
-						main_bonus.c		\
-						checker.c
 
 PRE_PS_C			:= sorting.c			\
 
@@ -52,31 +50,29 @@ EXECUTION_C			:=	sort3.c				\
 
 ERROR_C				:= error_parsing.c
 
-MAIN_BN_C				:=	main.c				\
-						utilities.c 		\
-						main_bonus.c		\
-						checker.c
+MAIN_BN_C				:=	main_bonus.c		\
+							checker.c 			\
 
-PRE_PS_BN_C			:= sorting.c			\
+PRE_PS_BN_C				:= sorting_bn.c			\
 
-PARSING__BN_C			:=	number_parsing.c	\
-						parsing.c			\
-						utils.c
+PARSING__BN_C			:=	number_parsing_bn.c	\
+							parsing_bn.c			\
+							utils_bn.c
 
-STACK_BN_C				:=	push_stack.c		\
-						stack_ops.c			\
-						utils.c
+STACK_BN_C				:=	push_stack_bn.c		\
+							stack_ops_bn.c			\
+							utils_bn.c
 
-PS_OPS_BN_C			:=	push.c				\
-						swap.c				\
-						rotate.c			\
-						reverse.c
+PS_OPS_BN_C				:=	push_bn.c				\
+							swap_bn.c				\
+							rotate_bn.c			\
+							reverse_bn.c
 
-EXECUTION_C			:=	sort3.c				\
-						a2b.c				\
-						b2a.c
+EXECUTION_BN_C			:=	sort3.c				\
+							a2b.c				\
+							b2a.c
 
-ERROR_C				:= error_parsing.c
+ERROR_BN_C				:= error_parsing_bn.c
 
 SRCS				:= 			$(addprefix ${MAIN}/,					${MAIN_C})			\
 								$(addprefix	${MANDATORY}/${PARSING}/,	${PARSING_C})		\
@@ -86,7 +82,13 @@ SRCS				:= 			$(addprefix ${MAIN}/,					${MAIN_C})			\
 								$(addprefix ${MANDATORY}/${EXECUTION}/, ${EXECUTION_C})		\
 								$(addprefix ${MANDATORY}/${ERROR}/,		${ERROR_C})
 
-BONUS				:=
+BONUS				:= 			$(addprefix ${MAIN}/,				${MAIN_BN_C})			\
+								$(addprefix	${BONUS}/${PARSING}/,	${PARSING_BN_C})		\
+								$(addprefix ${BONUS}/${PRE_PS}/,	${PRE_PS_BN_C})			\
+								$(addprefix ${BONUS}/${STACK}/,		${STACK_BN_C})			\
+								$(addprefix ${BONUS}/${PS_OPS}/,	${PS_OPS_BN_C})			\
+								$(addprefix ${BONUS}/${EXECUTION}/, ${EXECUTION_BN_C})		\
+								$(addprefix ${BONUS}/${ERROR}/,		${ERROR_BN_C})
 
 OBJS				:= ${SRCS:.c=.o}
 
@@ -116,7 +118,7 @@ ${FT_PRINTF_FD}:
 # Create bonus lib
 bonus : .bonus
 .bonus : ${OBJS_BN} ${LIBFT} ${FT_PRINTF_FD}
-		cc ${OBJS_BN} ${LIBFT} ${FT_PRINTF_FD} -o ${NAME}
+		cc ${OBJS_BN} ${LIBFT} ${FT_PRINTF_FD} -o ${BONUS}
 		@touch .bonus
 
 # Clean target
