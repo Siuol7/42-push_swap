@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:37:54 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:55:17 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 09:51:37 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include "checker.h"
 
 static t_stack	*stack_generating(int *rank, int *main_arr, int size)
 {
@@ -28,10 +28,10 @@ static t_stack	*stack_generating(int *rank, int *main_arr, int size)
 		if (!node)
 			return (NULL);
 		node->val = main_arr[i];
-		node->id = get_id(rank, main_arr[i], 0, size);
+		node->id = get_id_bn(rank, main_arr[i], 0, size);
 		if (node->id == -1)
 			return (NULL);
-		insert_node(stack_a, node);
+		insert_node_bn(stack_a, node);
 	}
 	return (stack_a);
 }

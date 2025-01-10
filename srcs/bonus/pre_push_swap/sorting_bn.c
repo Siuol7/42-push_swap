@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:55:08 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 08:49:10 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include "checker.h"
 
 static void	fillright(int **array, int *R, t_sort *id)
 {
@@ -88,8 +88,8 @@ int	mergesort_bn(int **array, int left, int right)
 	if (left < right)
 	{
 		mid = (right + left) / 2;
-		mergesort(array, left, mid);
-		mergesort(array, mid + 1, right);
+		mergesort_bn(array, left, mid);
+		mergesort_bn(array, mid + 1, right);
 		if (!premerge(array, left, mid, right))
 			return (0);
 	}

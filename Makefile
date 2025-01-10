@@ -1,5 +1,5 @@
 NAME	:= push_swap
-BONUS	:= checker
+NAME_BN	:= checker
 CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror
 
@@ -12,7 +12,7 @@ LIBFT				:= ${LIBFT_DIR}/libft.a
 FT_PRINTF_FD		:= ${FT_PRINTF_FD_DIR}/libftprintf.a
 
 #INCLUDE
-INCLUDE				:= -I ${LIBFT_DIR} -I ${FT_PRINTF_FD_DIR} -I ./includes
+INCLUDE				:= -I ${LIBFT_DIR} -I ${FT_PRINTF_FD_DIR} -I ./includes/
 
 MAIN				:= ./srcs/main
 MANDATORY			:= ./srcs/mandatory
@@ -55,7 +55,7 @@ MAIN_BN_C				:=	main_bonus.c		\
 
 PRE_PS_BN_C				:= sorting_bn.c			\
 
-PARSING__BN_C			:=	number_parsing_bn.c	\
+PARSING_BN_C			:=	number_parsing_bn.c	\
 							parsing_bn.c			\
 							utils_bn.c
 
@@ -68,9 +68,7 @@ PS_OPS_BN_C				:=	push_bn.c				\
 							rotate_bn.c			\
 							reverse_bn.c
 
-EXECUTION_BN_C			:=	sort3.c				\
-							a2b.c				\
-							b2a.c
+EXECUTION_BN_C			:=	read_and_exec.c
 
 ERROR_BN_C				:= error_parsing_bn.c
 
@@ -100,7 +98,7 @@ all:	${LIBFT} ${FT_PRINTF_FD} ${NAME}
 #Compiling Rule
 %.o:	%.c
 	@echo "----------------------------Compiling----------------------------"
-	${CC} ${CFLAGS} -o $@ -c $< ${INCLUDE}
+	@${CC} ${CFLAGS} -o $@ -c $< ${INCLUDE}
 
 #Create source library
 ${NAME}: ${OBJS} ${LIBFT} ${FT_PRINTF_FD}
@@ -118,7 +116,7 @@ ${FT_PRINTF_FD}:
 # Create bonus lib
 bonus : .bonus
 .bonus : ${OBJS_BN} ${LIBFT} ${FT_PRINTF_FD}
-		cc ${OBJS_BN} ${LIBFT} ${FT_PRINTF_FD} -o ${BONUS}
+		cc ${OBJS_BN} ${LIBFT} ${FT_PRINTF_FD} -o ${NAME_BN}
 		@touch .bonus
 
 # Clean target

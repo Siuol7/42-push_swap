@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:41 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:55:34 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 08:49:10 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include "checker.h"
 
 static int	error_return_bn(int *rank, int *main_arr)
 {
@@ -19,15 +19,17 @@ static int	error_return_bn(int *rank, int *main_arr)
 	return (0);
 }
 
-static void	ops_execute(t_pushswap ps)
+static int	ops_execute(t_pushswap ps)
 {
 	if (ps.stack_a->size == 2
 		&& (ps.stack_a->top->id > ps.stack_a->bottom->id))
 		sa_bn(&ps);
 	else if (ps.stack_a->size >= 3)
-		read_and_exec(&ps);
-	else
-		return ;
+	{
+		if (!read_and_exec(&ps))
+			return (0);
+	}
+	return (1);
 }
 
 int	checker(char **av)
@@ -46,7 +48,10 @@ int	checker(char **av)
 	if (check_duplicate_bn(rank, ps.stack_a->size))
 		return (error_return_bn(rank, main_arr));
 	if (compare_bn(rank, main_arr, ps.stack_a->size))
-		ops_execute(ps);
+	{
+		if (!ops_execute(ps))
+			return (0);
+	}
 	clear_stack(&ps);
 	free(rank);
 	free(main_arr);

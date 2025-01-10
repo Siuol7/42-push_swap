@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 11:28:31 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:55:22 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 08:49:10 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include "checker.h"
 
 void	clear_stack(t_pushswap *ps)
 {

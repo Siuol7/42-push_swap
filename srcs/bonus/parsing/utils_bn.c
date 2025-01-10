@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:02:29 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:55:03 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 09:50:31 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include "checker.h"
 
 static int	single_count_bn(char *av)
 {
@@ -40,7 +40,7 @@ int	number_count_bn(char **av)
 	cnt = 0;
 	while (av[i])
 	{
-		cnt += single_count(av[i]);
+		cnt += single_count_bn(av[i]);
 		i++;
 	}
 	return (cnt);

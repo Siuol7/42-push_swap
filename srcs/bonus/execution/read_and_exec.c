@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:54:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 08:03:10 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 09:55:42 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include "checker.h"
 
 static void 	parse_ops(t_pushswap*ps, char *ops)
 {
@@ -69,7 +69,7 @@ int	read_and_exec(t_pushswap *ps)
 			ft_printf_fd(2, "Error\n");
 			return (0);
 		}
-		else if (readbytes == 0)
+		else if (readbytes == 0 && line[0] == '\0')
 			return (1);
 		line[readbytes] = '\0';
 		if ((line[readbytes - 1] != '\n') || !get_ops(ps, line))

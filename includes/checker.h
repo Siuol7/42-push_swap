@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:18:39 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 07:28:34 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 09:50:53 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,15 @@ int		mergesort_bn(int **array, int left, int right);
 
 //STACKING
 //push_stack
-int		push_stack(t_pushswap *ps, int *rank, int *main_arr, int size);
+int		push_stack_bn(t_pushswap *ps, int *rank, int *main_arr, int size);
 
 //stack_ops
-int		insert_node(t_stack *stack, t_node *node);
-t_node	*pop_stack(t_stack *stack);
+int		insert_node_bn(t_stack *stack, t_node *node);
+t_node	*pop_stack_bn(t_stack *stack);
 void	clear_stack(t_pushswap *ps);
 
 //utils
-int		get_id(int *rank, int val, int left, int right);
+int		get_id_bn(int *rank, int val, int left, int right);
 
 //PS_OPS
 //push
@@ -102,5 +102,8 @@ void	rr_bn(t_pushswap *ps);
 
 //MAIN
 int		checker(char **av);
+
+//EXECUTION
+int		read_and_exec(t_pushswap *ps);
 
 #endif

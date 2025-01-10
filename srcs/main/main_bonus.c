@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:26 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:22:46 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 08:49:10 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include "checker.h"
 
 int	main(int ac, char **av)
 {

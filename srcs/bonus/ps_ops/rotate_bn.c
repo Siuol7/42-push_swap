@@ -6,11 +6,11 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:13 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 06:44:45 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/09 08:49:10 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include "checker.h"
 
 static int	rotate(t_stack *stack)
 {
