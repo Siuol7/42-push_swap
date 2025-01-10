@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:18:39 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 09:50:53 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/10 08:42:53 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	clear_stack(t_pushswap *ps);
 
 //utils
 int		get_id_bn(int *rank, int val, int left, int right);
+void		ft_issorted(t_pushswap *ps, int *status);
 
 //PS_OPS
 //push
@@ -101,7 +102,7 @@ void	rb_bn(t_pushswap *ps);
 void	rr_bn(t_pushswap *ps);
 
 //MAIN
-int		checker(char **av);
+int		checker(char **av, int *status);
 
 //EXECUTION
 int		read_and_exec(t_pushswap *ps);

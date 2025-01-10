@@ -50,22 +50,22 @@ EXECUTION_C			:=	sort3.c				\
 
 ERROR_C				:= error_parsing.c
 
-MAIN_BN_C				:=	main_bonus.c		\
-							checker.c 			\
+MAIN_BN_C				:=	main_bonus.c			\
+							checker.c 				\
 
-PRE_PS_BN_C				:= sorting_bn.c			\
+PRE_PS_BN_C				:= sorting_bn.c				\
 
-PARSING_BN_C			:=	number_parsing_bn.c	\
+PARSING_BN_C			:=	number_parsing_bn.c		\
 							parsing_bn.c			\
 							utils_bn.c
 
-STACK_BN_C				:=	push_stack_bn.c		\
+STACK_BN_C				:=	push_stack_bn.c			\
 							stack_ops_bn.c			\
 							utils_bn.c
 
 PS_OPS_BN_C				:=	push_bn.c				\
 							swap_bn.c				\
-							rotate_bn.c			\
+							rotate_bn.c				\
 							reverse_bn.c
 
 EXECUTION_BN_C			:=	read_and_exec.c
