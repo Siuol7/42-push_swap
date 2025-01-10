@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:13:02 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 08:46:56 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/10 11:49:40 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	get_id_bn(int *rank, int val, int left, int right)
 
 void	ft_issorted(t_pushswap *ps, int *status)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = ps->stack_a->top;
 	while (node->prev != NULL)

@@ -6,15 +6,15 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:54:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 11:44:36 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/10 11:50:28 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static int 	parse_ops(t_pushswap*ps, char *ops)
+static int	parse_ops(t_pushswap*ps, char *ops)
 {
-	if (ft_strcmp(ops,"ra") == 0)
+	if (ft_strcmp(ops, "ra") == 0)
 		ra_bn(ps);
 	else if (ft_strcmp(ops, "rb") == 0)
 		rb_bn(ps);
@@ -46,7 +46,7 @@ static void	ft_flush(char *line)
 	char	word;
 
 	read(0, &word, 1);
-	while (word !=  '\n')
+	while (word != '\n')
 		read(0, &word, 1);
 	free(line);
 }
@@ -73,14 +73,14 @@ static char	*get_ops(int i)
 			return (NULL);
 		}
 		if (word == '\n')
-			break;
+			break ;
 		line[i++] = word;
 	}
 	line[i] = '\0';
 	return (line);
 }
 
-int read_and_exec(t_pushswap *ps)
+int	read_and_exec(t_pushswap *ps)
 {
 	char	*ops;
 
@@ -90,7 +90,7 @@ int read_and_exec(t_pushswap *ps)
 		if (!ops)
 			return (0);
 		else if (ops[0] == '\0')
-			break;
+			break ;
 		if (!parse_ops(ps, ops))
 		{
 			free(ops);

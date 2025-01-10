@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:41 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 10:12:48 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/10 11:50:42 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	error_return_bn(int *rank, int *main_arr)
 	return (0);
 }
 
-static int	post_ps_error(int  *rank, int *main_arr, t_pushswap *ps)
+static int	post_ps_error(int *rank, int *main_arr, t_pushswap *ps)
 {
 	clear_stack(ps);
 	free(rank);
