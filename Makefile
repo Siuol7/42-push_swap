@@ -96,8 +96,8 @@ OBJS_BN				:= ${BONUS:.c=.o}
 all:	${LIBFT} ${FT_PRINTF_FD} ${NAME}
 
 #Compiling Rule
-	@echo "---------------------------Compiled Successfully----------------------------"
 %.o:	%.c
+	@echo "Compiling..."
 	@${CC} ${CFLAGS} -o $@ -c $< ${INCLUDE}
 
 #Create source library
@@ -114,7 +114,6 @@ ${FT_PRINTF_FD}:
 
 
 # Create bonus lib
-	@echo "---------------------------Compiled Successfully----------------------------"
 bonus : .bonus
 .bonus : ${OBJS_BN} ${LIBFT} ${FT_PRINTF_FD}
 		@cc ${OBJS_BN} ${LIBFT} ${FT_PRINTF_FD} -o ${NAME_BN}
