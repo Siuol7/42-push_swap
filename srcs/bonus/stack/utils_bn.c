@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:13:02 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 09:51:52 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/10 07:51:33 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,18 @@ int	get_id_bn(int *rank, int val, int left, int right)
 	if (val > rank[mid])
 		return (get_id_bn(rank, val, mid + 1, right));
 	return (-1);
+}
+
+int	ft_issorted(t_pushswap *ps)
+{
+	t_node *node;
+
+	node = ps->stack_a->top;
+	while (node->prev != NULL)
+	{
+		if (node->id > node->prev->id)
+			return (1);
+		node = node->prev;
+	}
+	return (0);
 }
