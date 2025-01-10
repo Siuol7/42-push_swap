@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:54:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 09:27:09 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/10 09:57:16 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,29 @@ static int 	parse_ops(t_pushswap*ps, char *ops)
 	return (1);
 }
 
-static int	get_ops(t_pushswap *ps, int i)
+static char	*get_ops(int i)
 {
 	int		readbytes;
 	char	word;
-	char	line[5];
+	char	*line;
 
+	line = malloc(5);
+	if (!line)
+		return (NULL);
 	while (1)
 	{
 		readbytes = read(0, &word, 1);
 		if (readbytes < 0)
 			return (NULL);
 		if (readbytes == 0 && i == 0)
-			return (NULL);
+			break ;
 		if (word == '\n')
 			break;
 		line[i++] = word;
 		if (i == 4 && line[3] != '\n')
 			return (NULL);
 	}
+	line[i] = '\0';
 	return (line);
 }
 
@@ -69,8 +73,10 @@ int read_and_exec(t_pushswap *ps, int *status)
 
 	while (1)
 	{
-		ops = get_ops(ps, 0);
-		if (!ops)
+		ops = get_ops(0);
+		if (ops[0] == '\0')
+			break;
+		else if (!ops)
 		{
 			ft_printf_fd(2, "Error\n");
 			return (0);
@@ -83,5 +89,6 @@ int read_and_exec(t_pushswap *ps, int *status)
 		}
 		free(ops);
 	}
+	ft_issorted(ps, status);
 	return (1);
 }
