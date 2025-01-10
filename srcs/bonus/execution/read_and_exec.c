@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:54:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 09:57:16 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/10 10:39:11 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,38 +57,33 @@ static char	*get_ops(int i)
 			return (NULL);
 		if (readbytes == 0 && i == 0)
 			break ;
+		if ((i == 0 && word == '\n') || (i == 3 && word != '\n'))
+			return (NULL);
 		if (word == '\n')
 			break;
 		line[i++] = word;
-		if (i == 4 && line[3] != '\n')
-			return (NULL);
 	}
 	line[i] = '\0';
 	return (line);
 }
 
-int read_and_exec(t_pushswap *ps, int *status)
+int read_and_exec(t_pushswap *ps)
 {
 	char	*ops;
 
 	while (1)
 	{
 		ops = get_ops(0);
-		if (ops[0] == '\0')
-			break;
-		else if (!ops)
-		{
-			ft_printf_fd(2, "Error\n");
+		if (!ops)
 			return (0);
-		}
+		else if (ops[0] == '\0')
+			break;
 		if (!parse_ops(ps, ops))
 		{
-			ft_printf_fd(2, "Error\n");
 			free(ops);
 			return (0);
 		}
 		free(ops);
 	}
-	ft_issorted(ps, status);
 	return (1);
 }

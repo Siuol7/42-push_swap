@@ -6,13 +6,20 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:41 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 08:46:51 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/10 10:12:48 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static int	error_return_bn(int *rank, int *main_arr, t_pushswap *ps)
+static int	error_return_bn(int *rank, int *main_arr)
+{
+	free(rank);
+	free(main_arr);
+	return (0);
+}
+
+static int	post_ps_error(int  *rank, int *main_arr, t_pushswap *ps)
 {
 	clear_stack(ps);
 	free(rank);
@@ -47,13 +54,13 @@ int	checker(char **av, int *status)
 	if (!rank || vector_size == 0 || !main_arr
 		|| !mergesort_bn(&rank, 0, vector_size - 1)
 		|| !push_stack_bn(&ps, rank, main_arr, vector_size))
-		return (error_return_bn(rank, main_arr, &ps));
+		return (error_return_bn(rank, main_arr));
 	if (check_duplicate_bn(rank, ps.stack_a->size))
-		return (error_return_bn(rank, main_arr, &ps));
+		return (error_return_bn(rank, main_arr));
 	if (compare_bn(rank, main_arr, ps.stack_a->size))
 	{
 		if (!ops_execute(ps, status))
-			return (error_return_bn(rank, main_arr, &ps));
+			return (post_ps_error(rank, main_arr, &ps));
 	}
 	clear_stack(&ps);
 	free(rank);

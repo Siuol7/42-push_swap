@@ -23,19 +23,19 @@ all :${NAME}
 
 #Rules to compile
 %.o : %.c
-		cc -Wall -Wextra -Werror -c  $< -o $@ ${INCLUDE}
+		@cc -Wall -Wextra -Werror -c  $< -o $@ ${INCLUDE}
 
 #Target to create library
 ${NAME} : ${OBJS}
-		ar rcs $@ $^
+		@ar rcs $@ $^
 
 #Target to clean
 clean :
-		rm -f ${OBJS}
+		@rm -f ${OBJS}
 
 #Target to clean
 fclean :
-		rm -rf ${NAME} ${OBJS}
+		@rm -rf ${NAME} ${OBJS}
 
 #Clean and build again
 re : fclean all
