@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:54:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 10:39:11 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/10 11:44:36 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,16 @@ static int 	parse_ops(t_pushswap*ps, char *ops)
 	return (1);
 }
 
+static void	ft_flush(char *line)
+{
+	char	word;
+
+	read(0, &word, 1);
+	while (word !=  '\n')
+		read(0, &word, 1);
+	free(line);
+}
+
 static char	*get_ops(int i)
 {
 	int		readbytes;
@@ -58,7 +68,10 @@ static char	*get_ops(int i)
 		if (readbytes == 0 && i == 0)
 			break ;
 		if ((i == 0 && word == '\n') || (i == 3 && word != '\n'))
+		{
+			ft_flush(line);
 			return (NULL);
+		}
 		if (word == '\n')
 			break;
 		line[i++] = word;
