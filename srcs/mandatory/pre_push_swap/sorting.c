@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/08 17:18:22 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 00:17:32 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,14 @@ static int	premerge(int **array, int left, int mid, int right)
 	id.n1 = mid - left + 1;
 	id.n2 = right - mid;
 	l = (int *)malloc(id.n1 * sizeof(int));
+	if (!l)
+		return (0);
 	r = (int *)malloc(id.n2 * sizeof(int));
+	if (!r)
+	{
+		free(l);
+		return (0);
+	}
 	while (++id.i < id.n1)
 		l[id.i] = (*array)[left + id.i];
 	while (++id.j < id.n2)
@@ -76,20 +83,18 @@ static int	premerge(int **array, int left, int mid, int right)
 	merge(array, l, r, &id);
 	free(l);
 	free(r);
-	if (id.dup == 1)
-		return (0);
 	return (1);
 }
 
-int	mergesort(int **array, int left, int right)
+int	mergesort_bn(int **array, int left, int right)
 {
 	int	mid;
 
 	if (left < right)
 	{
 		mid = (right + left) / 2;
-		mergesort(array, left, mid);
-		mergesort(array, mid + 1, right);
+		mergesort_bn(array, left, mid);
+		mergesort_bn(array, mid + 1, right);
 		if (!premerge(array, left, mid, right))
 			return (0);
 	}

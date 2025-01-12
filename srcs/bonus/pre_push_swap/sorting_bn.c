@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/12 23:46:15 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 00:16:29 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,15 @@ static int	premerge(int **array, int left, int mid, int right)
 	ft_bminus(&id, sizeof(id));
 	id.n1 = mid - left + 1;
 	id.n2 = right - mid;
-	l = (int *)malloc(id.n1 * sizeof(int)); // error check
+	l = (int *)malloc(id.n1 * sizeof(int));
+	if (!l)
+		return (0);
 	r = (int *)malloc(id.n2 * sizeof(int));
+	if (!r)
+	{
+		free(l);
+		return (0);
+	}
 	while (++id.i < id.n1)
 		l[id.i] = (*array)[left + id.i];
 	while (++id.j < id.n2)
@@ -76,8 +83,6 @@ static int	premerge(int **array, int left, int mid, int right)
 	merge(array, l, r, &id);
 	free(l);
 	free(r);
-	if (id.dup == 1)
-		return (0);
 	return (1);
 }
 
