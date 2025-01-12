@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:58:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/13 00:17:32 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 00:28:07 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,15 +86,15 @@ static int	premerge(int **array, int left, int mid, int right)
 	return (1);
 }
 
-int	mergesort_bn(int **array, int left, int right)
+int	mergesort(int **array, int left, int right)
 {
 	int	mid;
 
 	if (left < right)
 	{
 		mid = (right + left) / 2;
-		mergesort_bn(array, left, mid);
-		mergesort_bn(array, mid + 1, right);
+		mergesort(array, left, mid);
+		mergesort(array, mid + 1, right);
 		if (!premerge(array, left, mid, right))
 			return (0);
 	}

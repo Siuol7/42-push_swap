@@ -6,11 +6,20 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:59:48 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/08 18:22:52 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 00:40:58 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+static void	check_malloc(int *array, char **final)
+{
+	if (!array)
+	{
+		ft_free_2d(final);
+		return (NULL);
+	}
+}
 
 static char	**digit_parsing(int len, char **av)
 {
@@ -34,14 +43,14 @@ static char	**digit_parsing(int len, char **av)
 			return (NULL);
 		}
 		while (temp[j])
-			final[i++] = ft_strdup(temp[j++]);
+			final[i++] = ft_strdup(temp[j++]); //error handling
 		ft_free_2d((void **)temp);
 		av++;
 	}
 	return (final);
 }
 
-int	*number_parsing(int len, char **av)
+int	*number_parsing_bn(int len, char **av)
 {
 	int		*array;
 	char	**final;
@@ -49,7 +58,10 @@ int	*number_parsing(int len, char **av)
 
 	i = 0;
 	final = digit_parsing(len, av);
+	if (!final)
+		return (NULL);
 	array = (int *)malloc(len * sizeof(int));
+	check_malloc(array, final);
 	while (final[i])
 	{
 		if (!ft_isint(final[i]))
