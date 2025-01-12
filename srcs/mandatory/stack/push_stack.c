@@ -6,43 +6,70 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:37:54 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/31 02:09:24 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 00:12:53 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static t_stack	*stack_generating(int *rank, int *main_arr, int size)
+static int	check (char **some, char* (*f)(const char *), char *temp)
 {
-	int		i;
-	t_stack	*stack_a;
-	t_node	*node;
-
-	i = size;
-	stack_a = ft_calloc(1, sizeof(t_stack));
-	if (!stack_a)
-		return (NULL);
-	while (i--)
-	{
-		node = ft_calloc(1, sizeof(t_node));
-		if (!node)
-			return (NULL);
-		node->val = main_arr[i];
-		node->id = get_id(rank, main_arr[i], 0, size);
-		if (node->id == -1)
-			return (NULL);
-		insert_node(stack_a, node);
-	}
-	return (stack_a);
-}
-
-int	push_stack(t_pushswap *ps, int *rank, int *main_arr, int size)
-{
-	ps->stack_a = stack_generating(rank, main_arr, size);
-	if (!ps->stack_a)
-		return (0);
-	ps->stack_b = ft_calloc(1, sizeof(t_stack));
-	if (!ps->stack_b)
+	*some = f(temp);
+	if (!*some)
 		return (0);
 	return (1);
+}
+
+
+static char	**digit_parsing(int len, char **av)
+{
+	int		i;
+	int		j;
+	char	**final;
+	char	**temp;
+
+	i = 0;
+	final = malloc((len + 1) * sizeof(char *));
+	if (!final)
+		return (NULL);
+	final[len] = NULL;
+	while (i < len)
+	{
+		j = 0;
+		temp = ft_split_allspace(*av);
+		if (!temp)
+		{
+			ft_free_process_2d(final, i - 1);
+			return (NULL);
+		}
+		while (check(final[i], ft_strdup, temp[j]))
+			final[i++] = ft_strdup(temp[j++]); //error check
+		ft_free_2d((void **)temp);
+		av++;
+	}
+	return (final);
+}
+
+int	*number_parsing_bn(int len, char **av)
+{
+	int		*array;
+	char	**final;
+	int		i;
+
+	i = 0;
+	final = digit_parsing(len, av);//error check
+	array = (int *)malloc(len * sizeof(int)); //error check
+	while (final[i])
+	{
+		if (!ft_isint(final[i]))
+		{
+			ft_free_2d((void **)final);
+			free(array);
+			return (NULL);
+		}
+		array[i] = ft_atoi(final[i]);
+		i++;
+	}
+	ft_free_2d((void **)final);
+	return (array);
 }

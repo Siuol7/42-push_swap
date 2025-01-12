@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:18:39 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 11:48:46 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/12 23:52:59 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@
 # include "../library/ft_printf_fd/ft_printf.h"
 # include "../library/libft/libft.h"
 # include <fcntl.h>
+
+
+char **test_calloc(size_t x , size_t y)
+{
+	static int i = 0;
+	i++;
+	printf("file name %s\n", __FILE__);
+	if (i == 4)
+	{
+		return 0;
+	}
+	return ft_calloc(x, y);
+}
+#define ft_calloc(x, y) test_calloc(x,y)
 
 typedef struct s_sort
 {

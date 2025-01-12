@@ -6,11 +6,24 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:37:54 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 09:51:37 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 00:11:56 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+static	void	clean_stacking_process(t_stack *stack)
+{
+	t_node	*node;
+
+	while (stack->top)
+	{
+		node = stack->top;
+		stack->top = stack->top->prev;
+		free(node);
+	}
+	free(stack);
+}
 
 static t_stack	*stack_generating(int *rank, int *main_arr, int size)
 {
@@ -26,7 +39,11 @@ static t_stack	*stack_generating(int *rank, int *main_arr, int size)
 	{
 		node = ft_calloc(1, sizeof(t_node));
 		if (!node)
+		{
+			clean_stacking_process(stack_a);
+			stack_a = NULL;
 			return (NULL);
+		}
 		node->val = main_arr[i];
 		node->id = get_id_bn(rank, main_arr[i], 0, size);
 		if (node->id == -1)
@@ -43,6 +60,9 @@ int	push_stack_bn(t_pushswap *ps, int *rank, int *main_arr, int size)
 		return (0);
 	ps->stack_b = ft_calloc(1, sizeof(t_stack));
 	if (!ps->stack_b)
+	{
+		clean_stack(ps);
 		return (0);
+	}
 	return (1);
 }

@@ -6,11 +6,20 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:59:48 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/09 08:49:10 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/12 23:44:36 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+static int	check (char **some, char* (*f)(const char *), char *temp)
+{
+	*some = f(temp);
+	if (!*some)
+		return (0);
+	return (1);
+}
+
 
 static char	**digit_parsing(int len, char **av)
 {
@@ -33,8 +42,8 @@ static char	**digit_parsing(int len, char **av)
 			ft_free_process_2d(final, i - 1);
 			return (NULL);
 		}
-		while (temp[j])
-			final[i++] = ft_strdup(temp[j++]);
+		while (check(final[i], ft_strdup, temp[j]))
+			final[i++] = ft_strdup(temp[j++]); //error check
 		ft_free_2d((void **)temp);
 		av++;
 	}
@@ -48,8 +57,8 @@ int	*number_parsing_bn(int len, char **av)
 	int		i;
 
 	i = 0;
-	final = digit_parsing(len, av);
-	array = (int *)malloc(len * sizeof(int));
+	final = digit_parsing(len, av);//error check
+	array = (int *)malloc(len * sizeof(int)); //error check
 	while (final[i])
 	{
 		if (!ft_isint(final[i]))
