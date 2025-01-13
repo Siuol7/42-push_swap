@@ -6,58 +6,68 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:59:48 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/13 00:40:42 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:29:55 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static void	check_malloc(int *array, char **final)
+static int	check_malloc(int *array, char **final)
 {
 	if (!array)
 	{
-		ft_free_2d(final);
-		return (NULL);
+		ft_free_2d((void **)final);
+		return (0);
 	}
+	return (1);
 }
 
-static void	check_proces(char *temp, int i)
+static int	process_temp(char **temp, char **final, int *i)
 {
-	if (!temp)
+	int	j;
+
+	j = 0;
+	while (temp[j])
 	{
-		ft_free_process_2d(temp, i - 1);
-		return (NULL);
+		final[*i] = ft_strdup(temp[j]);
+		if (!final[*i])
+		{
+			ft_free_2d((void **)temp);
+			ft_free_process_2d(final, *i);
+			return (0);
+		}
+		(*i)++;
+		j++;
 	}
+	return (1);
 }
 
 static char	**digit_parsing(int len, char **av)
 {
 	int		i;
-	int		j;
 	char	**final;
 	char	**temp;
 
-	i = -1;
+	i = 0;
 	final = malloc((len + 1) * sizeof(char *));
 	if (!final)
 		return (NULL);
 	final[len] = NULL;
-	while (++i < len)
+	while (i < len)
 	{
-		j = -1;
 		temp = ft_split_allspace(*av++);
-		check_process(temp, j)
-		while (temp[++j])
+		if (!temp)
 		{
-			final[i] = ft_strdup(temp[j++]);
-			if (!final[i])
-				ft_free_process_2d(final, i);
+			ft_free_process_2d(final, i);
 			return (NULL);
 		}
+		if (!process_temp(temp, final, &i))
+			return (NULL);
 		ft_free_2d((void **)temp);
 	}
 	return (final);
 }
+
 
 int	*number_parsing_bn(int len, char **av)
 {
@@ -70,7 +80,8 @@ int	*number_parsing_bn(int len, char **av)
 	if (!final)
 		return (NULL);
 	array = (int *)malloc(len * sizeof(int));
-	check_malloc(array, final);
+	if (!check_malloc(array, final))
+		return (NULL);
 	while (final[i])
 	{
 		if (!ft_isint(final[i]))
