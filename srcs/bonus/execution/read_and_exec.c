@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:54:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 11:50:28 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:40:45 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,10 @@ int	read_and_exec(t_pushswap *ps)
 		if (!ops)
 			return (0);
 		else if (ops[0] == '\0')
+		{
+			free(ops);
 			break ;
+		}
 		if (!parse_ops(ps, ops))
 		{
 			free(ops);

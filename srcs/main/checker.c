@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:41 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 13:23:48 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:48:10 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ int	checker(char **av, int *status)
 	rank = parsing_bn(av + 1, &vector_size);
 	main_arr = parsing_bn(av + 1, &vector_size);
 	if (!rank || vector_size == 0 || !main_arr
-		|| !mergesort_bn(&rank, 0, vector_size - 1)
-		|| !push_stack_bn(&ps, rank, main_arr, vector_size))
+		|| !mergesort_bn(&rank, 0, vector_size - 1))
 		return (error_return_bn(rank, main_arr));
+	if (!push_stack_bn(&ps, rank, main_arr, vector_size))
+		return (post_ps_error(rank, main_arr, &ps));
 	if (check_duplicate_bn(rank, ps.stack_a->size))
-		return (error_return_bn(rank, main_arr));
+		return (post_ps_error(rank, main_arr, &ps));
 	if (compare_bn(rank, main_arr, ps.stack_a->size))
 	{
 		if (!ops_execute(ps, status))

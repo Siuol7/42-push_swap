@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:37:54 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/13 00:27:30 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:31:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,6 @@ int	push_stack(t_pushswap *ps, int *rank, int *main_arr, int size)
 		return (0);
 	ps->stack_b = ft_calloc(1, sizeof(t_stack));
 	if (!ps->stack_b)
-	{
-		clean_stack(ps);
 		return (0);
-	}
 	return (1);
 }
