@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:59:48 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/13 17:29:55 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:33:12 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ static char	**digit_parsing(int len, char **av)
 	}
 	return (final);
 }
-
 
 int	*number_parsing_bn(int len, char **av)
 {
