@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:16 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 08:33:22 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/14 00:05:31 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,19 @@ static int	swap(t_stack *stack)
 	return (1);
 }
 
-void	sa_bn(t_pushswap	*ps)
+int	sa_bn(t_pushswap	*ps)
 {
-	swap(ps->stack_a);
+	return (swap(ps->stack_a));
 }
 
-void	sb_bn(t_pushswap	*ps)
+int	sb_bn(t_pushswap	*ps)
 {
-	swap(ps->stack_b);
+	return (swap(ps->stack_b));
 }
 
-void	ss_bn(t_pushswap	*ps)
+int	ss_bn(t_pushswap	*ps)
 {
-	swap(ps->stack_a);
-	swap(ps->stack_b);
+	if (!swap(ps->stack_a) || !swap(ps->stack_b))
+		return (0);
+	return (1);
 }

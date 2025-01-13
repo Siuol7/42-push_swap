@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:26 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 10:13:35 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/14 00:20:18 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int	main(int ac, char **av)
 	status = 0;
 	if (ac < 2)
 		return (0);
-	if (!checker(av, &status))
+	if (!checker(av, &status) && status == 0)
 	{
 		ft_printf_fd(2, "Error\n");
 		return (1);
 	}
 	if (status == 1)
 	{
-		ft_printf_fd(1, "KO\n");
+		ft_printf_fd(2, "KO\n");
 		return (1);
 	}
 	else if (status == 2)

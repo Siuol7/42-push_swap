@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:13 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 08:32:57 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/14 00:19:23 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	rotate(t_stack *stack)
 {
 	t_node	*node;
 
+	if (stack->size < 2)
+		return (0);
 	node = pop_stack_bn(stack);
 	if (!node)
 		return (0);
@@ -26,18 +28,19 @@ static int	rotate(t_stack *stack)
 	return (1);
 }
 
-void	ra_bn(t_pushswap *ps)
+int	ra_bn(t_pushswap *ps)
 {
-	rotate(ps->stack_a);
+	return (rotate(ps->stack_a));
 }
 
-void	rb_bn(t_pushswap *ps)
+int	rb_bn(t_pushswap *ps)
 {
-	rotate(ps->stack_b);
+	return (rotate(ps->stack_b));
 }
 
-void	rr_bn(t_pushswap *ps)
+int	rr_bn(t_pushswap *ps)
 {
-	rotate(ps->stack_a);
-	rotate(ps->stack_b);
+	if (!rotate(ps->stack_a) || !rotate(ps->stack_b))
+		return (0);
+	return (1);
 }

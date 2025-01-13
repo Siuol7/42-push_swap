@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:13 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/08 17:19:31 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/13 23:40:46 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	rotate(t_stack *stack)
 {
 	t_node	*node;
 
+	if (stack->size == 1)
+		return (0);
 	node = pop_stack(stack);
 	if (!node)
 		return (0);

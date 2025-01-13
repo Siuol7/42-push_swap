@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:08 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/31 04:10:49 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/14 00:07:15 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	reverse(t_stack *stack)
 {
 	t_node	*node;
 
+	if (stack->size == 1)
+		return (0);
 	node = stack->bottom;
 	stack->bottom = stack->bottom->next;
 	stack->bottom->prev = NULL;
@@ -42,5 +44,5 @@ void	rrb(t_pushswap *ps)
 void	rrr(t_pushswap *ps)
 {
 	if (reverse(ps->stack_a) && reverse(ps->stack_b))
-		ft_printf_fd(1, "rrs\n");
+		ft_printf_fd(1, "rrr\n");
 }

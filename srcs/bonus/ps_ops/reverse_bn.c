@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:08 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/10 08:32:30 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/14 00:19:17 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	reverse(t_stack *stack)
 {
 	t_node	*node;
 
+	if (stack->size < 2)
+		return (0);
 	node = stack->bottom;
 	stack->bottom = stack->bottom->next;
 	stack->bottom->prev = NULL;
@@ -27,18 +29,19 @@ static int	reverse(t_stack *stack)
 	return (1);
 }
 
-void	rra_bn(t_pushswap *ps)
+int	rra_bn(t_pushswap *ps)
 {
-	reverse(ps->stack_a);
+	return (!reverse(ps->stack_a));
 }
 
-void	rrb_bn(t_pushswap *ps)
+int	rrb_bn(t_pushswap *ps)
 {
-	reverse(ps->stack_b);
+	return (!reverse(ps->stack_b));
 }
 
-void	rrr_bn(t_pushswap *ps)
+int	rrr_bn(t_pushswap *ps)
 {
-	reverse(ps->stack_a);
-	reverse(ps->stack_b);
+	if (!reverse(ps->stack_a) || !reverse(ps->stack_b))
+		return (0);
+	return (1);
 }

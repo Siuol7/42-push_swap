@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:41 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/13 20:48:10 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/14 00:18:48 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static int	ops_execute(t_pushswap ps, int *status)
 		sa_bn(&ps);
 	else if (ps.stack_a->size >= 3)
 	{
-		if (!read_and_exec(&ps))
+		*status = read_and_exec(&ps);
+		if (*status != 2)
 			return (0);
 		else
 			ft_issorted(&ps, status);
@@ -63,6 +64,8 @@ int	checker(char **av, int *status)
 		if (!ops_execute(ps, status))
 			return (post_ps_error(rank, main_arr, &ps));
 	}
+	else if (!compare_bn(rank, main_arr, ps.stack_a->size))
+		*status = 2;
 	clear_stack(&ps);
 	free(rank);
 	free(main_arr);
