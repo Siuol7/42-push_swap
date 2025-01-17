@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:54:35 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/14 00:08:39 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/17 15:17:25 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 static int	parse_ops(t_pushswap*ps, char *ops)
 {
 	if (ft_strcmp(ops, "ra") == 0)
-		return (ra_bn(ps));
+		ra_bn(ps);
 	else if (ft_strcmp(ops, "rb") == 0)
-		return (rb_bn(ps));
+		rb_bn(ps);
 	else if (ft_strcmp(ops, "rr") == 0)
-		return (rr_bn(ps));
+		rr_bn(ps);
 	else if (ft_strcmp(ops, "rra") == 0)
-		return (rra_bn(ps));
+		rra_bn(ps);
 	else if (ft_strcmp(ops, "rrb") == 0)
-		return (rrb_bn(ps));
+		rrb_bn(ps);
 	else if (ft_strcmp(ops, "rrr") == 0)
-		return (rrr_bn(ps));
+		rrr_bn(ps);
 	else if (ft_strcmp(ops, "sa") == 0)
-		return (sa_bn(ps));
+		sa_bn(ps);
 	else if (ft_strcmp(ops, "sb") == 0)
-		return (sb_bn(ps));
+		sb_bn(ps);
 	else if (ft_strcmp(ops, "ss") == 0)
-		return (ss_bn(ps));
+		ss_bn(ps);
 	else if (ft_strcmp(ops, "pa") == 0)
-		return (pa_bn(ps));
+		pa_bn(ps);
 	else if (ft_strcmp(ops, "pb") == 0)
-		return (pb_bn(ps));
+		pb_bn(ps);
 	else
 		return (0);
 	return (1);
@@ -97,9 +97,9 @@ int	read_and_exec(t_pushswap *ps)
 		if (!parse_ops(ps, ops))
 		{
 			free(ops);
-			return (1);
+			return (0);
 		}
 		free(ops);
 	}
-	return (2);
+	return (1);
 }

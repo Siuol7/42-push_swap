@@ -6,13 +6,13 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:16 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/14 00:05:31 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/17 15:16:39 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static int	swap(t_stack *stack)
+static void	swap(t_stack *stack)
 {
 	t_node	*node1;
 	t_node	*node2;
@@ -20,25 +20,23 @@ static int	swap(t_stack *stack)
 	node1 = pop_stack_bn(stack);
 	node2 = pop_stack_bn(stack);
 	if (!insert_node_bn(stack, node1))
-		return (0);
+		return ;
 	if (!insert_node_bn(stack, node2))
-		return (0);
-	return (1);
+		return ;
 }
 
-int	sa_bn(t_pushswap	*ps)
+void	sa_bn(t_pushswap	*ps)
 {
-	return (swap(ps->stack_a));
+	swap(ps->stack_a);
 }
 
-int	sb_bn(t_pushswap	*ps)
+void	sb_bn(t_pushswap	*ps)
 {
-	return (swap(ps->stack_b));
+	swap(ps->stack_b);
 }
 
-int	ss_bn(t_pushswap	*ps)
+void	ss_bn(t_pushswap	*ps)
 {
-	if (!swap(ps->stack_a) || !swap(ps->stack_b))
-		return (0);
-	return (1);
+	swap(ps->stack_a);
+	swap(ps->stack_b);
 }

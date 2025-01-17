@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:41 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/14 00:18:48 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/17 14:57:09 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,15 @@ static int	post_ps_error(int *rank, int *main_arr, t_pushswap *ps)
 	return (0);
 }
 
-static int	ops_execute(t_pushswap ps, int *status)
+static int	ops_execute(t_pushswap ps)
 {
 	if (ps.stack_a->size == 2
 		&& (ps.stack_a->top->id > ps.stack_a->bottom->id))
 		sa_bn(&ps);
 	else if (ps.stack_a->size >= 3)
 	{
-		*status = read_and_exec(&ps);
-		if (*status != 2)
+		if (!read_and_exec(&ps))
 			return (0);
-		else
-			ft_issorted(&ps, status);
 	}
 	return (1);
 }
@@ -59,13 +56,12 @@ int	checker(char **av, int *status)
 		return (post_ps_error(rank, main_arr, &ps));
 	if (check_duplicate_bn(rank, ps.stack_a->size))
 		return (post_ps_error(rank, main_arr, &ps));
-	if (compare_bn(rank, main_arr, ps.stack_a->size))
-	{
-		if (!ops_execute(ps, status))
-			return (post_ps_error(rank, main_arr, &ps));
-	}
-	else if (!compare_bn(rank, main_arr, ps.stack_a->size))
+	if (!ops_execute(ps))
+		return (post_ps_error(rank, main_arr, &ps));
+	if (!compare_bn(rank, main_arr, ps.stack_a->size))
 		*status = 2;
+	else
+		*status = 1;
 	clear_stack(&ps);
 	free(rank);
 	free(main_arr);
