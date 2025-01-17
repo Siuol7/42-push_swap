@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 05:58:41 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/17 14:57:09 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/17 15:25:02 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,7 @@ int	checker(char **av, int *status)
 		return (post_ps_error(rank, main_arr, &ps));
 	if (!ops_execute(ps))
 		return (post_ps_error(rank, main_arr, &ps));
-	if (!compare_bn(rank, main_arr, ps.stack_a->size))
-		*status = 2;
-	else
-		*status = 1;
+	ft_issorted(&ps, status);
 	clear_stack(&ps);
 	free(rank);
 	free(main_arr);
