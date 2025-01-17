@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 10:00:39 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/08 18:40:45 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:06:18 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,19 +92,16 @@ void	pa(t_pushswap *ps);
 void	pb(t_pushswap *ps);
 
 //swap
-void	ss(t_pushswap	*ps);
 void	sb(t_pushswap	*ps);
 void	sa(t_pushswap	*ps);
 
 //reverse
 void	rra(t_pushswap *ps);
 void	rrb(t_pushswap *ps);
-void	rrr(t_pushswap *ps);
 
 //rotate
 void	ra(t_pushswap *ps);
 void	rb(t_pushswap *ps);
-void	rr(t_pushswap *ps);
 
 //EXECUTION
 //sort3

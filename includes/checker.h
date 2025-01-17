@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 06:18:39 by caonguye          #+#    #+#             */
-/*   Updated: 2025/01/14 00:06:12 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:07:14 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,23 +83,23 @@ void	ft_issorted(t_pushswap *ps, int *status);
 
 //PS_OPS
 //push
-int	pa_bn(t_pushswap *ps);
-int	pb_bn(t_pushswap *ps);
+int		pa_bn(t_pushswap *ps);
+int		pb_bn(t_pushswap *ps);
 
 //swap
-int	ss_bn(t_pushswap	*ps);
-int	sb_bn(t_pushswap	*ps);
-int	sa_bn(t_pushswap	*ps);
+int		ss_bn(t_pushswap *ps);
+int		sb_bn(t_pushswap *ps);
+int		sa_bn(t_pushswap *ps);
 
 //reverse
-int	rra_bn(t_pushswap *ps);
-int	rrb_bn(t_pushswap *ps);
-int	rrr_bn(t_pushswap *ps);
+int		rra_bn(t_pushswap *ps);
+int		rrb_bn(t_pushswap *ps);
+int		rrr_bn(t_pushswap *ps);
 
 //rotate
-int	ra_bn(t_pushswap *ps);
-int	rb_bn(t_pushswap *ps);
-int	rr_bn(t_pushswap *ps);
+int		ra_bn(t_pushswap *ps);
+int		rb_bn(t_pushswap *ps);
+int		rr_bn(t_pushswap *ps);
 
 //MAIN
 int		checker(char **av, int *status);

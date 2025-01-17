@@ -6,7 +6,7 @@
 /*   By: caonguye <caonguye@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:29:16 by caonguye          #+#    #+#             */
-/*   Updated: 2024/12/27 13:26:22 by caonguye         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:05:29 by caonguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,4 @@ void	sb(t_pushswap	*ps)
 {
 	if (swap(ps->stack_b))
 		ft_printf_fd(1, "sb\n");
-}
-
-void	ss(t_pushswap	*ps)
-{
-	if (swap(ps->stack_a) && swap(ps->stack_b))
-		ft_printf_fd(1, "ss\n");
 }
